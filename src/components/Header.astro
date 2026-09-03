@@ -1,0 +1,60 @@
+---
+interface Props {
+  current?: string;
+}
+const { current = "" } = Astro.props;
+
+const photoSlugs = ["automobil-motorsport-fotografie-salzburg", "kreativ", "landschaftsfotografie-salzburg", "wildlife-fotografie"];
+const isPhotoSection = photoSlugs.includes(current);
+---
+
+<header>
+  <div class="nav wrap" style="max-width:none;padding:0 40px">
+    <a class="logo" href="/" aria-label="Zauner Visuals — Startseite">
+      <span>ZAUNER</span><span>VISUALS</span>
+      <span class="lg-rule"></span>
+      <span class="lg-sub"><span>PHOTO</span><span>VIDEO</span><span>DESIGN</span></span>
+    </a>
+    <nav class="links">
+      <div class="nav-item" id="fotoDrop">
+        <a href="/automobil-motorsport-fotografie-salzburg" class={`drop-trigger${isPhotoSection ? " active" : ""}`} aria-haspopup="true" aria-expanded="false">Foto</a>
+        <div class="dropdown" role="menu">
+          <a href="/automobil-motorsport-fotografie-salzburg" role="menuitem" class={current === "automobil-motorsport-fotografie-salzburg" ? "active" : ""}>autos &amp; motorsport</a>
+          <a href="/kreativ" role="menuitem" class={current === "kreativ" ? "active" : ""}>kreativ</a>
+          <a href="/landschaftsfotografie-salzburg" role="menuitem" class={current === "landschaftsfotografie-salzburg" ? "active" : ""}>landschaft</a>
+          <a href="/wildlife-fotografie" role="menuitem" class={current === "wildlife-fotografie" ? "active" : ""}>wildlife</a>
+        </div>
+      </div>
+      <a href="/design" class={current === "design" ? "active" : ""}>Design</a>
+      <a href="/ueber-mich" class={current === "ueber-mich" ? "active" : ""}>Über mich</a>
+      <a href="/kontakt" class={current === "kontakt" ? "active" : ""}>Kontakt</a>
+      <a class="ig" href="https://www.instagram.com/jzauner_" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const item = document.getElementById('fotoDrop');
+  if (item) {
+    const trigger = item.querySelector('.drop-trigger') as HTMLElement | null;
+    trigger?.addEventListener('click', (e) => {
+      e.preventDefault();
+      const open = item.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', (e) => {
+      if (!item.contains(e.target as Node)) {
+        item.classList.remove('open');
+        trigger?.setAttribute('aria-expanded', 'false');
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        item.classList.remove('open');
+        trigger?.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+</script>

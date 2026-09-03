@@ -1,0 +1,28 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import GalleryGrid from "../components/GalleryGrid.astro";
+import { creativeGallery } from "../data/galleries";
+import { breadcrumbJsonLd } from "../data/business";
+
+const crumbs = breadcrumbJsonLd([
+  { name: "Startseite", path: "/" },
+  { name: "Kreativ", path: "/kreativ" },
+]);
+---
+
+<BaseLayout
+  title="Kreative Fotografie & Composing Salzburg | Julian Zauner"
+  description="Kreative Fotografie und Composing aus Salzburg: Studio-Porträts, Lightpainting und Experimente jenseits des klassischen Shootings."
+  path="/kreativ"
+  current="kreativ"
+  jsonLd={[crumbs]}
+>
+  <main class="page">
+    <div class="head">
+      <div class="crumbs"><a href="/">Startseite</a> / kreativ</div>
+      <h1 class="title">kreativ</h1>
+      <p class="intro">Kreative Fotografie &amp; Composing aus Salzburg — Studio, Lightpainting und Experimente abseits des Alltäglichen.</p>
+    </div>
+    <GalleryGrid shots={creativeGallery} />
+  </main>
+</BaseLayout>

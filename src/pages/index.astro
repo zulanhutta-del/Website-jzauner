@@ -1,0 +1,290 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { heroSlides } from "../data/galleries";
+import { faqJsonLd } from "../data/business";
+
+const faq = [
+  { q: "Welche Art von Fotografie bietet Julian Zauner an?", a: "Julian Zauner fotografiert Automobile & Motorsport, Wildlife, Landschaft und kreative Composings, dreht Video und übernimmt Grafikdesign & Branding — von der Aufnahme bis zur fertigen Bilddatei aus einer Hand." },
+  { q: "In welchen Regionen bist du unterwegs?", a: "Basis ist Thalgau bei Salzburg. Shootings finden im gesamten Salzburger Land statt, für Renntage und Projekte auch überregional in Österreich." },
+  { q: "Wie kann ich ein Shooting anfragen?", a: "Am einfachsten über das Kontaktformular oder direkt per E-Mail an julianzauner@icloud.com — kurz Projekt, Wunschtermin und Ort beschreiben, der Rest wird gemeinsam abgestimmt." },
+  { q: "Bietest du auch Video und Design an?", a: "Ja. Neben Fotografie entstehen Video-Edits sowie Grafikdesign- und Branding-Arbeiten — Logo, Editorial, Poster und Verpackung, siehe die Design-Projekte auf dieser Seite." },
+];
+---
+
+<BaseLayout
+  title="Fotograf Salzburg – Automobil & Motorsport | Julian Zauner"
+  description="Julian Zauner: Fotograf & Videograf aus Salzburg, spezialisiert auf Automobil- und Motorsportfotografie. Cinematische Bilder, jetzt Projekt anfragen."
+  path="/"
+  current=""
+  jsonLd={[faqJsonLd(faq)]}
+>
+  <main id="top">
+    <!-- HERO CAROUSEL -->
+    <section class="hero" id="hero" aria-roledescription="carousel" aria-label="Themen-Carousel">
+      <div class="carousel" id="carousel">
+        {heroSlides.map((slide, i) => (
+          <div class:list={["slide", { "is-active": i === 0 }]} data-cat={slide.title}>
+            <div class="slide-bg" style={`background-image:url(${slide.img});background-size:cover;background-position:center`}></div>
+            <img src={slide.img} alt={slide.alt} class="sr-only-img" loading={i === 0 ? "eager" : "lazy"} />
+            <div class="wrap slide-content">
+              <h1 class="slide-title">{slide.title}</h1>
+              <div class="slide-cta">
+                <a class="btn-pill" href={slide.href}>Galerie ansehen <span class="ar">→</span></a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="car-dots" id="carDots" role="tablist" aria-label="Themen"></div>
+    </section>
+
+    <!-- ABOUT TEASER -->
+    <section class="sec wrap" id="ueber">
+      <div class="about">
+        <div class="reveal">
+          <h2 style="text-transform:none">Willkommen auf meiner Website.</h2>
+          <p>
+            Hi, ich bin Julian Zauner, Fotograf, Videograf und Designer aus Salzburg. Ich mache nicht
+            einfach Bilder — ich baue die ganze visuelle Geschichte: von Automobil-, Motorsport- und
+            Aerial-Shootings über den Schnitt bis zum Branding drumherum. Du hast eine Idee? Lass uns
+            daraus etwas machen, das man sich zweimal ansieht.
+          </p>
+          <a class="btn-pill" href="/ueber-mich" style="margin-top:16px;border-color:rgba(255,255,255,.35)">mehr erfahren</a>
+        </div>
+        <div class="about-photo reveal">
+          <img src="/images/hero/hero-cars-ferrari.jpg" alt="Julian Zauner bei der Arbeit" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- LATEST WORK -->
+    <section class="sec wrap" id="arbeiten">
+      <div class="sec-head reveal">
+        <h2 style="text-transform:none">Neueste Arbeiten</h2>
+      </div>
+      <div class="work">
+        <a class="tile big reveal" href="/automobil-motorsport-fotografie-salzburg">
+          <img class="ph" src="/images/cars/cars-01-ferrari-296-street.jpg" alt="Automobilfotografie" loading="lazy" />
+          <span class="go">↗</span>
+          <span class="cap">Automobilfotografie</span>
+          <h3>Automobil</h3>
+        </a>
+        <a class="tile tall reveal" href="/automobil-motorsport-fotografie-salzburg">
+          <img class="ph" src="/images/cars/cars-04-porsche-911-track.jpg" alt="Motorsportfotografie" loading="lazy" />
+          <span class="go">↗</span>
+          <span class="cap">Motorsport · Strecke</span>
+          <h3>Motorsport</h3>
+        </a>
+        <a class="tile third reveal" href="/kreativ">
+          <img class="ph" src="/images/creative/creative-01-ski-goggles.jpg" alt="Kreative Fotografie" loading="lazy" />
+          <span class="go">↗</span>
+          <span class="cap">Kreativ · Composing</span>
+          <h3>Kreativ</h3>
+        </a>
+        <a class="tile third reveal" href="/landschaftsfotografie-salzburg">
+          <img class="ph" src="/images/landscape/landscape-01-corsica-hairpin.jpg" alt="Landschaftsfotografie" loading="lazy" />
+          <span class="go">↗</span>
+          <span class="cap">Alpine Landschaft</span>
+          <h3>Landschaft</h3>
+        </a>
+        <a class="tile third reveal" href="/wildlife-fotografie">
+          <img class="ph" src="/images/wildlife/wildlife-02-fire-salamander.jpg" alt="Wildlife-Fotografie" loading="lazy" />
+          <span class="go">↗</span>
+          <span class="cap">Wildlife</span>
+          <h3>Wildlife</h3>
+        </a>
+      </div>
+    </section>
+
+    <!-- LEISTUNGEN -->
+    <section class="sec wrap" id="leistungen">
+      <div class="sec-head reveal">
+        <h2 style="text-transform:none">Leistungen</h2>
+        <p>Foto, Video und Design aus einer Hand.</p>
+      </div>
+      <div class="services">
+        <div class="svc reveal">
+          <div class="num">01</div>
+          <h3>Automobil- & Motorsportfotografie</h3>
+          <p>Car-Shootings, Rolling Shots, Detailaufnahmen und Renntag-Coverage in Salzburg und Österreich.</p>
+          <div class="tags"><span>Auto-Shooting</span><span>Rennstrecke</span><span>Rolling Shot</span></div>
+        </div>
+        <div class="svc reveal">
+          <div class="num">02</div>
+          <h3>Wildlife & Landschaft</h3>
+          <p>Naturfotografie in den Salzburger Alpen und der Umgebung — von Makroaufnahmen bis zum Alpenpanorama.</p>
+          <div class="tags"><span>Tierfotografie</span><span>Landschaft</span><span>Makro</span></div>
+        </div>
+        <div class="svc reveal">
+          <div class="num">03</div>
+          <h3>Video</h3>
+          <p>Bewegtbild rund um dieselben Themen — vom Renntag-Recap bis zum kurzen Cinematic-Edit.</p>
+          <div class="tags"><span>Videografie</span><span>Schnitt</span></div>
+        </div>
+        <div class="svc reveal">
+          <div class="num">04</div>
+          <h3>Grafikdesign & Branding</h3>
+          <p>Corporate Design, Editorial, Poster und Packaging — ausgebildet an der HTL Salzburg in Grafik- & Mediendesign.</p>
+          <div class="tags"><span>Branding</span><span>Editorial</span><span>Print</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="sec wrap" id="faq">
+      <div class="sec-head reveal">
+        <h2 style="text-transform:none">Häufige Fragen</h2>
+      </div>
+      <div class="faq reveal">
+        {faq.map((item) => (
+          <details class="qa">
+            <summary>{item.q}<span class="plus">+</span></summary>
+            <div class="a">{item.a}</div>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <!-- CONTACT CTA -->
+    <section class="contact wrap reveal">
+      <h2>Lass uns etwas <span class="gold">Sichtbares</span> schaffen.</h2>
+      <p>Ob Auto-Shooting, Renntag oder komplette Bildkampagne — erzähl mir von deinem Projekt.</p>
+      <div class="hero-cta">
+        <a class="btn-pill" href="/kontakt">Projekt anfragen <span class="ar">→</span></a>
+      </div>
+      <div class="addr">
+        <b>Julian Zauner</b> · 5303 Thalgau/Salzburg · julianzauner@icloud.com
+      </div>
+    </section>
+  </main>
+
+  <style>
+    .sr-only-img { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+
+    .hero { position: relative; height: 100vh; min-height: 620px; overflow: hidden; background: #000; }
+    .carousel { position: absolute; inset: 0; }
+    .slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity 1.1s ease, visibility 1.1s; }
+    .slide.is-active { opacity: 1; visibility: visible; }
+    .slide-bg { position: absolute; inset: 0; transform: scale(1.05); transition: transform 7s ease; }
+    .slide.is-active .slide-bg { transform: scale(1); }
+    .slide::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,.45) 0%, transparent 26%, transparent 52%, rgba(0,0,0,.82) 100%),
+                  radial-gradient(120% 80% at 50% 120%, rgba(0,0,0,.6), transparent 60%);
+    }
+    .slide-content { position: absolute; left: 0; right: 0; top: 57vh; bottom: auto; z-index: 3; }
+    .slide-title {
+      font-weight: 800; color: #fff; text-transform: uppercase; letter-spacing: -.02em;
+      line-height: .94; font-size: clamp(2.6rem, 8vw, 7rem); text-wrap: balance;
+      opacity: 0; transform: translateY(22px); transition: .8s .1s;
+    }
+    .slide.is-active .slide-title { opacity: 1; transform: none; }
+    .slide-cta { margin-top: 38px; opacity: 0; transform: translateY(18px); transition: .8s .3s; }
+    .slide.is-active .slide-cta { opacity: 1; transform: none; }
+    .car-dots { position: absolute; left: 0; right: 0; bottom: 40px; z-index: 5; display: flex; gap: 12px; justify-content: center; }
+    .car-dots button { width: 32px; height: 3px; border: 0; padding: 0; background: rgba(255,255,255,.3); cursor: pointer; transition: background .3s; border-radius: 2px; }
+    .car-dots button.on { background: var(--accent); }
+    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+
+    .about { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
+    .about-photo { position: relative; aspect-ratio: 4/5; border-radius: 3px; overflow: hidden; border: 1px solid var(--line); }
+    .about-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .about h2 { font-weight: 800; font-size: clamp(1.8rem, 3.6vw, 2.8rem); line-height: 1.05; letter-spacing: -.02em; margin: 14px 0 22px; }
+    .about p { color: var(--muted); margin-bottom: 18px; max-width: 54ch; }
+
+    .work { display: grid; grid-template-columns: repeat(6,1fr); gap: 16px; }
+    .tile {
+      position: relative; overflow: hidden; border-radius: 3px; border: 1px solid var(--line-soft);
+      min-height: 280px; display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 24px; cursor: pointer; isolation: isolate;
+      transition: transform .5s cubic-bezier(.2,.7,.2,1), border-color .3s;
+    }
+    .tile:hover { border-color: var(--accent); }
+    .tile .ph { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+    .tile:hover .ph { transform: scale(1.06); }
+    .tile::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, transparent 30%, rgba(8,9,11,.86) 100%); }
+    .tile .cap { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+    .tile h3 { font-weight: 800; font-size: 1.5rem; text-transform: uppercase; letter-spacing: -.01em; margin-top: 6px; }
+    .tile .go { position: absolute; top: 20px; right: 20px; color: var(--accent); opacity: 0; transform: translate(-6px,6px); transition: opacity .3s, transform .3s; font-size: 20px; }
+    .tile:hover .go { opacity: 1; transform: translate(0,0); }
+    .tile.big { grid-column: span 4; min-height: 520px; }
+    .tile.tall { grid-column: span 2; min-height: 520px; }
+    .tile.third { grid-column: span 2; }
+
+    .services { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
+    .svc { border: 1px solid var(--line-soft); border-radius: 3px; padding: 34px; background: var(--surface); transition: border-color .3s, background .3s; }
+    .svc:hover { border-color: var(--line); background: var(--surface-2); }
+    .svc .num { font-size: 12px; color: var(--accent); letter-spacing: .15em; }
+    .svc h3 { font-weight: 700; font-size: 1.4rem; margin: 16px 0 10px; letter-spacing: -.01em; }
+    .svc p { color: var(--muted); font-size: 15.5px; max-width: 46ch; }
+    .svc .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
+    .svc .tags span { font-size: 11px; color: var(--muted); border: 1px solid var(--line); padding: 5px 10px; border-radius: 2px; letter-spacing: .05em; }
+
+    .faq { max-width: 860px; margin: 0 auto; }
+    .qa { border-bottom: 1px solid var(--line-soft); }
+    .qa summary { list-style: none; cursor: pointer; padding: 26px 0; display: flex; justify-content: space-between; gap: 20px; align-items: center; font-weight: 700; font-size: 1.18rem; letter-spacing: -.01em; }
+    .qa summary::-webkit-details-marker { display: none; }
+    .qa summary .plus { color: var(--accent); font-size: 24px; transition: transform .3s; flex: none; }
+    .qa[open] summary .plus { transform: rotate(45deg); }
+    .qa .a { color: var(--muted); padding: 0 0 26px; max-width: 70ch; line-height: 1.6; }
+
+    .contact { text-align: center; padding: 130px 28px; }
+    .contact h2 { font-weight: 900; font-size: clamp(2.4rem, 7vw, 5.5rem); line-height: .98; letter-spacing: -.02em; text-transform: uppercase; }
+    .contact h2 .gold { color: var(--accent); }
+    .contact p { color: var(--muted); max-width: 48ch; margin: 22px auto 36px; font-size: 1.1rem; }
+    .contact .hero-cta { justify-content: center; }
+    .contact .addr { margin-top: 40px; font-size: 12.5px; color: var(--muted); letter-spacing: .06em; }
+    .contact .addr b { color: var(--text); font-weight: 500; }
+
+    @media (max-width: 900px) {
+      .work { grid-template-columns: repeat(2,1fr); }
+      .tile.big, .tile.tall, .tile.third { grid-column: span 2; min-height: 300px; }
+      .about { grid-template-columns: 1fr; gap: 36px; }
+      .services { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .tile .ph, .tile:hover .ph { transition: none; }
+    }
+  </style>
+
+  <script>
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: .14 });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+    (function () {
+      const slides = [...document.querySelectorAll('.slide')] as HTMLElement[];
+      const dotsWrap = document.getElementById('carDots');
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let i = 0;
+      let timer: ReturnType<typeof setInterval> | null = null;
+      slides.forEach((s, idx) => {
+        const b = document.createElement('button');
+        b.setAttribute('role', 'tab');
+        b.setAttribute('aria-label', s.dataset.cat || `Thema ${idx + 1}`);
+        if (idx === 0) b.classList.add('on');
+        b.addEventListener('click', () => { go(idx); reset(); });
+        dotsWrap?.appendChild(b);
+      });
+      const dots = dotsWrap ? [...dotsWrap.children] : [];
+      function go(n: number) {
+        slides[i].classList.remove('is-active');
+        dots[i]?.classList.remove('on');
+        i = (n + slides.length) % slides.length;
+        slides[i].classList.add('is-active');
+        dots[i]?.classList.add('on');
+      }
+      function next() { go(i + 1); }
+      function reset() {
+        if (reduce) return;
+        if (timer) clearInterval(timer);
+        timer = setInterval(next, 4000);
+      }
+      const hero = document.getElementById('hero');
+      hero?.addEventListener('mouseenter', () => { if (timer) clearInterval(timer); });
+      hero?.addEventListener('mouseleave', reset);
+      reset();
+    })();
+  </script>
+</BaseLayout>

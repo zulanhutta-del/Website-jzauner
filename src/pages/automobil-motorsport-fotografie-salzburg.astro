@@ -1,0 +1,109 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import GalleryGrid from "../components/GalleryGrid.astro";
+import { carsGallery } from "../data/galleries";
+import { faqJsonLd, breadcrumbJsonLd } from "../data/business";
+
+const faq = [
+  {
+    q: "Was kostet ein Auto-Shooting in Salzburg?",
+    a: "Der Preis hängt vom Umfang ab: Anzahl der Fahrzeuge, Location, Dauer und ob Rolling Shots oder Video dazukommen. Am besten kurz Projekt und Wunschtermin über das Kontaktformular schicken — dann gibt es ein passendes Angebot.",
+  },
+  {
+    q: "Wie läuft ein Auto-Shooting ab?",
+    a: "Nach Anfrage werden Location, Termin und gewünschter Stil (Street, Studio, Rolling Shot, Detailaufnahmen) gemeinsam abgestimmt. Am Shooting-Tag folgen Aufnahme und kurze Bildauswahl, danach die Bearbeitung der finalen Fotos.",
+  },
+  {
+    q: "Fotografierst du auch bei Renntagen und Trackdays?",
+    a: "Ja. Motorsport-Coverage auf der Strecke gehört zum Kernbereich — Action-Aufnahmen im Rennen, Boxengasse und Fahrerlager, nutzbar für Fahrer, Teams und Sponsoren.",
+  },
+  {
+    q: "Wie schnell bekomme ich meine Bilder?",
+    a: "Die Bearbeitungszeit richtet sich nach Umfang des Shootings. Ein grober Zeitrahmen wird bei der Anfrage mitgeteilt, damit klar ist, wann die fertigen Bilder ankommen.",
+  },
+  {
+    q: "Fotografierst du auch außerhalb von Salzburg?",
+    a: "Basis ist Thalgau bei Salzburg, Shootings im Salzburger Land sind Standard. Für Renntage, Events oder besondere Projekte ist auch überregionale Anreise in Österreich möglich — einfach anfragen.",
+  },
+  {
+    q: "Kann ich eigene Wunschlocations vorschlagen?",
+    a: "Klar. Ob Bergstraße, Showroom, Industrie-Kulisse oder eine bestimmte Rennstrecke — Locations werden gerne gemeinsam besprochen und wenn nötig auch neue gescoutet.",
+  },
+];
+
+const crumbs = breadcrumbJsonLd([
+  { name: "Startseite", path: "/" },
+  { name: "Automobil- & Motorsportfotografie Salzburg", path: "/automobil-motorsport-fotografie-salzburg" },
+]);
+---
+
+<BaseLayout
+  title="Automobilfotografie & Motorsportfotografie Salzburg | Julian Zauner"
+  description="Automobil- und Motorsportfotografie in Salzburg: cinematische Car-Shootings, Rolling Shots, Detailaufnahmen und Renntag-Coverage. Jetzt Projekt anfragen."
+  path="/automobil-motorsport-fotografie-salzburg"
+  current="automobil-motorsport-fotografie-salzburg"
+  jsonLd={[faqJsonLd(faq), crumbs]}
+>
+  <main class="page">
+    <div class="head">
+      <div class="crumbs"><a href="/">Startseite</a> / automobil &amp; motorsport</div>
+      <h1 class="title">automobil &amp; motorsport</h1>
+      <p class="intro">Automobil- &amp; Motorsportfotografie in Salzburg.</p>
+    </div>
+
+    <div class="pillar-copy">
+      <p>
+        Julian Zauner ist ein auf Automobil- und Motorsportfotografie spezialisierter Fotograf aus
+        Salzburg (Thalgau). Er fotografiert Autos, Fahrzeug-Details und Rolling Shots für Autohäuser,
+        Tuner, Sammler und Privatpersonen und deckt darüber hinaus Motorsport-Action auf der
+        Rennstrecke ab — inklusive professioneller Bildbearbeitung.
+      </p>
+      <p>
+        Der Fokus liegt auf cinematischen, kontrastreichen Bildern: dramatisches Licht, klare
+        Linienführung am Fahrzeug und Aufnahmen, die die Persönlichkeit eines Autos zeigen statt es
+        nur zu dokumentieren. Das Portfolio reicht von Ferraris und Porsches über Drift-Autos bis zu
+        Rennwagen im Renneinsatz — Street-Shootings genauso wie Showroom- und Trackday-Coverage.
+      </p>
+      <p>
+        Shootings finden vorwiegend in Salzburg und im Salzburger Land statt, für Renntage und
+        besondere Projekte ist auch überregionale Anreise in Österreich möglich. Jedes Shooting wird
+        individuell geplant — Location, Tageszeit und Stil werden vorab gemeinsam abgestimmt, damit
+        das Ergebnis zum Fahrzeug und zum Anlass passt.
+      </p>
+      <p>
+        Julian hat an der HTL Salzburg Grafik- &amp; Mediendesign studiert und bringt dieses Auge für
+        Gestaltung direkt in die Bildbearbeitung ein — jedes Foto wird bis zur finalen Datei
+        durchgezogen, nicht nur aufgenommen. Wer ein Auto-Shooting, eine Renntag-Begleitung oder eine
+        ganze Bildkampagne plant, ist hier richtig.
+      </p>
+    </div>
+
+    <GalleryGrid shots={carsGallery} />
+
+    <div class="faq-wrap">
+      <h2>Häufige Fragen zu Auto- &amp; Motorsportfotografie</h2>
+      <div class="faq">
+        {faq.map((item) => (
+          <details class="qa">
+            <summary>{item.q}<span class="plus">+</span></summary>
+            <div class="a">{item.a}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </main>
+
+  <style>
+    .pillar-copy { max-width: 1600px; margin: 0 auto; padding: 0 0 30px; }
+    .pillar-copy p { color: var(--muted); max-width: 78ch; margin-bottom: 18px; font-size: 1.02rem; line-height: 1.7; }
+    .faq-wrap { max-width: 900px; margin: 0 auto; padding: 20px 0 100px; }
+    .faq-wrap h2 { font-weight: 700; font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 20px; letter-spacing: -.01em; }
+    .faq { }
+    .qa { border-bottom: 1px solid var(--line-soft); }
+    .qa summary { list-style: none; cursor: pointer; padding: 22px 0; display: flex; justify-content: space-between; gap: 20px; align-items: center; font-weight: 700; font-size: 1.05rem; }
+    .qa summary::-webkit-details-marker { display: none; }
+    .qa summary .plus { color: var(--accent); font-size: 22px; transition: transform .3s; flex: none; }
+    .qa[open] summary .plus { transform: rotate(45deg); }
+    .qa .a { color: var(--muted); padding: 0 0 22px; max-width: 70ch; line-height: 1.6; }
+  </style>
+</BaseLayout>

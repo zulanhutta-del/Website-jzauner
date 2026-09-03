@@ -1,0 +1,96 @@
+<title>about me — biography</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{--bg:#0C0D10;--surface:#14161B;--line:#2A2E36;--line-soft:#20242B;--text:#ECEBE7;--muted:#9a9ea6;--muted-2:#5E636D;--accent:#C6A15B}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:"Hanken Grotesk",system-ui,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  header{position:fixed;top:0;left:0;right:0;z-index:100;background:#000;border-bottom:1px solid #191919}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:101px;width:100%;padding:0 40px}
+  .logo{display:flex;flex-direction:column;line-height:.9;font-family:"Archivo";font-weight:800;letter-spacing:.14em;font-size:22px;color:#fff}
+  .logo .lg-sub{display:flex;gap:14px;margin-top:7px;font-family:"IBM Plex Mono";font-weight:400;font-size:8.5px;letter-spacing:.28em;color:#7b7f86}
+  .logo .lg-rule{height:1px;background:#3a3d43;margin:5px 0 0}
+  nav.links{display:flex;gap:44px;align-items:center}
+  nav.links a{font-size:16px;color:#d7d8da;transition:color .2s;font-weight:500}
+  nav.links a:hover,nav.links a.active{color:#fff}
+  .ig{display:grid;place-items:center;width:26px;height:26px;color:#d7d8da;transition:color .2s}
+  .ig:hover{color:#fff}.ig svg{width:22px;height:22px}
+  .nav-item{position:relative;display:flex;align-items:center}
+  .drop-trigger{display:inline-flex;align-items:center;gap:7px;cursor:pointer}
+  .caret{font-size:9px;color:#8b9099;transition:transform .25s}
+  .nav-item.open .caret{transform:rotate(180deg)}
+  .nav-item.open>.drop-trigger{color:#fff}
+  .dropdown{position:absolute;top:calc(100% + 40px);left:50%;transform:translateX(-50%) translateY(-8px);background:#0b0b0d;border:1px solid #232323;border-radius:5px;padding:8px;min-width:190px;display:flex;flex-direction:column;gap:2px;opacity:0;visibility:hidden;transition:opacity .22s,transform .22s,visibility .22s;z-index:120;box-shadow:0 24px 60px rgba(0,0,0,.55)}
+  .nav-item.open .dropdown{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+  .dropdown a{padding:11px 15px;border-radius:4px;font-size:15px;color:#cfd1d4;text-transform:lowercase;font-weight:500}
+  .dropdown a:hover{background:#17181c;color:#fff}
+
+  main{padding:101px 40px 0;min-height:calc(100vh - 200px)}
+  .about{max-width:1400px;margin:0 auto;padding:78px 0 90px;display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:start}
+  h1.title{font-family:"Archivo";font-weight:500;font-size:clamp(3rem,6.5vw,5.4rem);letter-spacing:-.01em;line-height:1;text-transform:lowercase;margin-bottom:64px}
+  .bio p{max-width:48ch;margin-bottom:26px;color:#c9ccd2;font-size:1.08rem;line-height:1.65}
+  .portrait{position:relative;aspect-ratio:4/5;border-radius:4px;overflow:hidden;border:1px solid var(--line);max-width:520px;margin-left:auto}
+  .portrait .ph{position:absolute;inset:0;background:radial-gradient(90% 80% at 60% 22%,rgba(210,180,140,.22),transparent 60%),linear-gradient(160deg,#221c17,#0f0f12 78%)}
+  .portrait .slot{position:absolute;top:16px;left:18px;font-family:"IBM Plex Mono";font-size:10px;letter-spacing:.12em;color:rgba(236,235,231,.5);text-transform:uppercase;z-index:2}
+
+  footer{border-top:1px solid var(--line-soft);padding:34px 40px;margin-top:20px}
+  .foot{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-family:"IBM Plex Mono";font-size:12.5px;color:var(--muted);letter-spacing:.04em}
+  .foot a:hover{color:var(--accent)}
+
+  @media(max-width:900px){
+    .nav{padding:0 20px}nav.links{display:none}
+    main{padding-left:20px;padding-right:20px}
+    .about{grid-template-columns:1fr;gap:40px}
+    h1.title{margin-bottom:36px}
+    .portrait{order:-1;max-width:420px;margin:0}
+  }
+
+  /* === Typografie: Helvetica Neue (global) === */
+  *{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif !important}
+  body,p,li,.intro,.bio p,.proj-text p{font-weight:400}
+  h1,h2,h3,h4,h5,h6,.title,.logo,.logo>span:not(.lg-sub){font-weight:700 !important}
+  h1,h2,h3,h4,h5,h6,.title,h1 *,h2 *,h3 *{color:#fff !important}
+</style>
+<header>
+  <div class="nav">
+    <a class="logo" href="index.html" aria-label="Zauner Visuals — Home"><span>ZAUNER</span><span>VISUALS</span><span class="lg-rule"></span><span class="lg-sub"><span>PHOTO</span><span>VIDEO</span><span>DESIGN</span></span></a>
+    <nav class="links">
+      <div class="nav-item" id="fotoDrop">
+        <a href="gallery-cars.html" class="drop-trigger">Photo</a>
+        <div class="dropdown" role="menu">
+          <a href="gallery-cars.html" role="menuitem">cars</a>
+          <a href="gallery-creative.html" role="menuitem">creative</a>
+          <a href="gallery-landscape.html" role="menuitem">landscape</a>
+          <a href="gallery-wildlife.html" role="menuitem">wildlife</a>
+        </div>
+      </div>
+      <a href="design.html">Design</a>
+      <a href="#" class="active">About me</a>
+      <a href="contact.html">Contact</a>
+      <a class="ig" href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="about">
+    <div>
+      <h1 class="title">biography</h1>
+      <div class="bio">
+        <p>My name is julian zauner and I am a 20 year old hobby photographer based in salzburg/austria.</p>
+        <p>I graduated from HTL Salzburg with a degree in graphic and media design, and through school I discovered photography and videography, which interest me the most.</p>
+        <p>I am looking forward to use my passion in photography and design for my future job and hope that I can learn many new and interesting things.</p>
+      </div>
+    </div>
+    <div class="portrait"><span class="slot">Portrait slot · Julian Zauner</span><div class="ph"></div></div>
+  </div>
+</main>
+
+<footer><div class="foot"><span>© 2026 Julian Zauner</span><span style="display:flex;gap:28px"><a href="#">Privacy</a><a href="#">Cookies</a><a href="#">Imprint</a></span></div></footer>
+
+<script>
+  (function(){const item=document.getElementById('fotoDrop');if(!item)return;const t=item.querySelector('.drop-trigger');t.addEventListener('click',e=>{e.preventDefault();const o=item.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false');});document.addEventListener('click',e=>{if(!item.contains(e.target))item.classList.remove('open');});document.addEventListener('keydown',e=>{if(e.key==='Escape')item.classList.remove('open');});})();
+</script>

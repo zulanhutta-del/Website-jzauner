@@ -1,0 +1,70 @@
+---
+import type { Shot } from "../data/galleries";
+
+interface Props {
+  shots: Shot[];
+}
+const { shots } = Astro.props;
+---
+
+<div class="gallery" id="gallery">
+  {shots.map((shot, i) => (
+    <a class="shot" data-cap={shot.cap}>
+      <img
+        class="phimg"
+        src={shot.src}
+        alt={shot.alt}
+        loading={i < 4 ? "eager" : "lazy"}
+        decoding="async"
+      />
+      <span class="cap">{shot.cap}</span>
+    </a>
+  ))}
+</div>
+
+<div class="lb" id="lb">
+  <span class="lb-close" id="lbClose" aria-label="Schließen">×</span>
+  <img class="lb-inner" id="lbImg" alt="" />
+  <div class="lb-hint">Klick / ESC zum Schließen</div>
+</div>
+
+<style>
+  .gallery { max-width: 1600px; margin: 0 auto; padding-bottom: 90px; column-count: 4; column-gap: 14px; }
+  @media (max-width: 1200px) { .gallery { column-count: 3; } }
+  @media (max-width: 820px) { .gallery { column-count: 2; } }
+  @media (max-width: 520px) { .gallery { column-count: 1; } }
+  .shot { position: relative; break-inside: avoid; margin-bottom: 14px; overflow: hidden; border-radius: 3px; border: 1px solid var(--line-soft); cursor: pointer; display: block; width: 100%; }
+  .shot .phimg { width: 100%; display: block; transition: transform .7s cubic-bezier(.2,.7,.2,1); }
+  .shot:hover .phimg { transform: scale(1.05); }
+  .shot::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(6,7,9,.72)); opacity: 0; transition: opacity .3s; }
+  .shot:hover::after { opacity: 1; }
+  .shot .cap { position: absolute; left: 16px; bottom: 14px; right: 16px; z-index: 2; font-size: 11px; letter-spacing: .06em; color: #fff; opacity: 0; transform: translateY(6px); transition: .3s; }
+  .shot:hover .cap { opacity: 1; transform: none; }
+
+  .lb { position: fixed; inset: 0; z-index: 200; background: rgba(6,7,9,.92); backdrop-filter: blur(8px); display: none; align-items: center; justify-content: center; padding: 40px; }
+  .lb.open { display: flex; }
+  .lb-close { position: absolute; top: 26px; right: 34px; color: #fff; font-size: 30px; cursor: pointer; opacity: .8; line-height: 1; }
+  .lb-close:hover { opacity: 1; }
+  .lb-hint { position: absolute; bottom: 28px; left: 0; right: 0; text-align: center; font-size: 11px; color: var(--muted-2); letter-spacing: .1em; }
+  img.lb-inner { aspect-ratio: auto; width: auto; height: auto; max-width: 1150px; max-height: 86vh; object-fit: contain; background: #000; display: block; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .shot .phimg, .shot:hover .phimg { transition: none; }
+  }
+</style>
+
+<script>
+  const lb = document.getElementById('lb');
+  const lbImg = document.getElementById('lbImg') as HTMLImageElement | null;
+  document.querySelectorAll('.shot').forEach((s) => {
+    s.addEventListener('click', () => {
+      const im = s.querySelector('img');
+      if (im && lbImg) lbImg.src = (im as HTMLImageElement).src;
+      lb?.classList.add('open');
+    });
+  });
+  function closeLb() { lb?.classList.remove('open'); }
+  document.getElementById('lbClose')?.addEventListener('click', closeLb);
+  lb?.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLb(); });
+</script>

@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Datenschutz | Julian Zauner"
+  description="Datenschutzerklärung von Julian Zauner Fotografie, Salzburg."
+  path="/datenschutz"
+  current=""
+>
+  <main class="page">
+    <div class="legal">
+      <h1 class="title">datenschutz</h1>
+      <div class="body">
+        <p><strong>Diese Seite ist ein Platzhalter.</strong> Die vollständige DSGVO-konforme Datenschutzerklärung (u.a. zu Kontaktformular/Supabase, Hosting via Vercel und ggf. Analytics) muss noch ergänzt werden, bevor die Website live geht.</p>
+        <p>Über das Kontaktformular übermittelte Daten (Name, E-Mail, Telefon, Nachricht) werden ausschließlich zur Bearbeitung der Anfrage gespeichert und nicht an Dritte weitergegeben.</p>
+        <p>Verantwortlicher: Julian Zauner, 5303 Thalgau, Salzburg, Österreich — julianzauner@icloud.com</p>
+      </div>
+    </div>
+  </main>
+
+  <style>
+    .legal { max-width: 800px; margin: 0 auto; padding: calc(101px + 78px) 28px 90px; }
+    .body p { color: var(--muted); margin-bottom: 20px; line-height: 1.7; max-width: 65ch; }
+    .body strong { color: var(--text); }
+  </style>
+</BaseLayout>

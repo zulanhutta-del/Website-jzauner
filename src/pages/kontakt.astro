@@ -1,0 +1,143 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { breadcrumbJsonLd } from "../data/business";
+
+const crumbs = breadcrumbJsonLd([
+  { name: "Startseite", path: "/" },
+  { name: "Kontakt", path: "/kontakt" },
+]);
+---
+
+<BaseLayout
+  title="Kontakt & Anfrage | Julian Zauner Fotografie Salzburg"
+  description="Projekt anfragen: Auto-Shooting, Renntag oder Kampagne. Kontaktiere Julian Zauner, Fotograf in Salzburg."
+  path="/kontakt"
+  current="kontakt"
+  jsonLd={[crumbs]}
+>
+  <main class="page">
+    <div class="contact-wrap">
+      <div class="left">
+        <h1 class="title">kontakt</h1>
+        <div class="info">
+          <div class="name">Julian Zauner<br />5303 Thalgau/Salzburg</div>
+          <a class="mail" href="mailto:julianzauner@icloud.com">E-Mail: julianzauner@icloud.com</a>
+          <div class="ig-line">
+            Instagram: <a href="https://www.instagram.com/jzauner_" target="_blank" rel="noopener noreferrer">jzauner_</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="right">
+        <form id="contactForm">
+          <div class="field half">
+            <label for="fn">Vorname</label>
+            <input id="fn" name="firstname" type="text" autocomplete="given-name" required />
+          </div>
+          <div class="field half">
+            <label for="ln">Nachname</label>
+            <input id="ln" name="lastname" type="text" autocomplete="family-name" required />
+          </div>
+          <div class="field half">
+            <label for="em">E-Mail-Adresse *</label>
+            <input id="em" name="email" type="email" autocomplete="email" required />
+          </div>
+          <div class="field half">
+            <label for="ph">Telefon</label>
+            <input id="ph" name="phone" type="tel" autocomplete="tel" />
+          </div>
+          <div class="field full">
+            <label for="msg">Deine Nachricht</label>
+            <textarea id="msg" name="message" required></textarea>
+          </div>
+          <div class="actions">
+            <span id="formStatus" class="form-status" role="status" aria-live="polite"></span>
+            <button class="send" type="submit">Senden</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <style>
+    main.page { padding-top: 101px; }
+    .contact-wrap { max-width: 1500px; margin: 0 auto; padding: 78px 28px 90px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    h1.title { margin-bottom: 70px; }
+    .info { color: var(--text); font-size: 1.06rem; line-height: 1.9; }
+    .info .name { margin-bottom: 28px; }
+    .info a.mail { border-bottom: 1px solid var(--muted); padding-bottom: 1px; transition: border-color .2s, color .2s; }
+    .info a.mail:hover { color: #fff; border-color: #fff; }
+    .info .ig-line { margin-top: 6px; color: var(--text); }
+    .info .ig-line a:hover { color: var(--accent); }
+
+    form { display: grid; grid-template-columns: 1fr 1fr; gap: 34px 30px; margin-top: 8px; }
+    .field { display: flex; flex-direction: column; }
+    .field.full { grid-column: 1 / -1; }
+    .field label { font-size: 14px; color: var(--muted); margin-bottom: 10px; }
+    .field input, .field textarea { background: transparent; border: 0; border-bottom: 1px solid var(--line); color: var(--text); font-family: inherit; font-size: 16px; padding: 8px 0; transition: border-color .2s; }
+    .field textarea { resize: vertical; min-height: 120px; }
+    .field input:focus, .field textarea:focus { outline: none; border-bottom-color: #fff; }
+    .actions { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .form-status { font-size: 13.5px; color: var(--muted); }
+    .form-status.ok { color: var(--accent); }
+    .form-status.err { color: #d97757; }
+    .send { background: transparent; border: 1px solid var(--line); color: var(--text); font-family: inherit; font-size: 15px; letter-spacing: .02em; padding: 15px 40px; cursor: pointer; transition: all .22s; }
+    .send:hover { background: #fff; color: #000; border-color: #fff; }
+    .send:disabled { opacity: .5; cursor: not-allowed; }
+
+    @media (max-width: 900px) {
+      .contact-wrap { grid-template-columns: 1fr; gap: 48px; }
+      h1.title { margin-bottom: 36px; }
+      form { margin-top: 0; }
+    }
+    @media (max-width: 560px) {
+      form { grid-template-columns: 1fr; }
+      .field.half { grid-column: 1 / -1; }
+    }
+  </style>
+
+  <script>
+    import { supabase } from "../lib/supabase";
+
+    const form = document.getElementById("contactForm") as HTMLFormElement | null;
+    const status = document.getElementById("formStatus");
+
+    form?.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const submitBtn = form.querySelector("button[type=submit]") as HTMLButtonElement | null;
+      const data = new FormData(form);
+      const firstname = String(data.get("firstname") || "").trim();
+      const lastname = String(data.get("lastname") || "").trim();
+      const email = String(data.get("email") || "").trim();
+      const phone = String(data.get("phone") || "").trim();
+      const message = String(data.get("message") || "").trim();
+
+      if (!supabase) {
+        if (status) {
+          status.textContent = "Formular noch nicht angebunden — bitte direkt per E-Mail schreiben.";
+          status.className = "form-status err";
+        }
+        return;
+      }
+
+      submitBtn && (submitBtn.disabled = true);
+      if (status) { status.textContent = "Wird gesendet …"; status.className = "form-status"; }
+
+      const { error } = await supabase.from("inquiries").insert({
+        name: `${firstname} ${lastname}`.trim(),
+        email,
+        phone: phone || null,
+        message,
+        source: "website",
+      });
+
+      if (error) {
+        if (status) { status.textContent = "Da ist etwas schiefgelaufen — bitte per E-Mail schreiben."; status.className = "form-status err"; }
+      } else {
+        form.reset();
+        if (status) { status.textContent = "Danke! Deine Nachricht ist angekommen."; status.className = "form-status ok"; }
+      }
+      submitBtn && (submitBtn.disabled = false);
+    });
+  </script>
+</BaseLayout>

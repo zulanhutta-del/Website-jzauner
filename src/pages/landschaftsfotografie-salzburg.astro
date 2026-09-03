@@ -1,0 +1,28 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import GalleryGrid from "../components/GalleryGrid.astro";
+import { landscapeGallery } from "../data/galleries";
+import { breadcrumbJsonLd } from "../data/business";
+
+const crumbs = breadcrumbJsonLd([
+  { name: "Startseite", path: "/" },
+  { name: "Landschaftsfotografie Salzburg", path: "/landschaftsfotografie-salzburg" },
+]);
+---
+
+<BaseLayout
+  title="Landschaftsfotografie Salzburg | Julian Zauner"
+  description="Landschaftsfotografie in Salzburg und den Alpen: Berge, Küsten und Naturstimmungen von Julian Zauner, Fotograf aus Thalgau/Salzburg."
+  path="/landschaftsfotografie-salzburg"
+  current="landschaftsfotografie-salzburg"
+  jsonLd={[crumbs]}
+>
+  <main class="page">
+    <div class="head">
+      <div class="crumbs"><a href="/">Startseite</a> / landschaft</div>
+      <h1 class="title">landschaft</h1>
+      <p class="intro">Landschaftsfotografie in Salzburg und den Alpen — von Bergpanoramen bis zu Küstenstimmungen auf Reisen.</p>
+    </div>
+    <GalleryGrid shots={landscapeGallery} />
+  </main>
+</BaseLayout>

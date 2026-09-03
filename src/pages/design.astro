@@ -1,0 +1,129 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { breadcrumbJsonLd } from "../data/business";
+
+const crumbs = breadcrumbJsonLd([
+  { name: "Startseite", path: "/" },
+  { name: "Grafikdesign", path: "/design" },
+]);
+
+const projects = [
+  {
+    cls: "d-ferrari",
+    cat: "Poster · Editorial",
+    title: "ferrari aesthetics",
+    text: "„Performance“-Poster für den Ferrari 296 GTB — Ziel war es, Leistung sichtbar zu machen: elegant, kompromisslos, unverkennbar Ferrari. Bild, Typografie und Layout aus einer Hand.",
+    meta: "Posterdesign · 2024",
+  },
+  {
+    cls: "d-surf",
+    cat: "Editorial Design",
+    title: "surfer mag „breakzone“",
+    text: "Editorial-Design-Projekt: ein Surf-Magazin von der Coverseite bis zu den Innenspreads — Titel, Raster, Typografie und Bildsprache für ein durchgängiges Heftgefühl.",
+    meta: "Editorial · 2023",
+  },
+  {
+    cls: "d-reride",
+    cat: "Corporate Design",
+    title: "reride",
+    text: "Schulprojekt 2024: ein komplettes Corporate Design aus einer eigenen Idee entwickelt — Logo, Geschäftsausstattung (inkl. Visitenkarte) und drei Werbeposter.",
+    meta: "Branding · Logo · Print · 2024",
+  },
+  {
+    cls: "d-atomic",
+    light: true,
+    cat: "Produkt · Ad-Design",
+    title: "atomic revent goggle",
+    text: "Foto- &amp; Design-Projekt für die Skibrille „Revent Goggle“ — Produktinszenierung und Anzeigen-Layout mit technischer Bildsprache. Model: Luna Ceschin.",
+    meta: "Produktdesign · 2024",
+  },
+  {
+    cls: "d-folder",
+    cat: "Broschüre · InDesign",
+    title: "image-folder",
+    text: "Schulprojekt 2023, gestaltet und produziert in Adobe InDesign: eine Image-Broschüre für eine Marke — inklusive Konkurrenzanalyse sowie Satzspiegel, Layout und Raster.",
+    meta: "Editorial · Print · 2023",
+  },
+];
+---
+
+<BaseLayout
+  title="Grafikdesign Salzburg | Julian Zauner"
+  description="Grafikdesign aus Salzburg: Branding, Editorial und Posterdesign von Julian Zauner — u.a. Ferrari-Poster, Corporate Design und Editorial für ein Surf-Magazin."
+  path="/design"
+  current="design"
+  jsonLd={[crumbs]}
+>
+  <main class="page">
+    <div class="head">
+      <div class="crumbs"><a href="/">Startseite</a> / design</div>
+      <h1 class="title">grafikdesign</h1>
+      <p class="intro">Meine Stärke liegt nicht nur in der Fotografie, sondern auch im Grafikdesign — von Corporate Design über Editorial bis Packaging. Eine Auswahl meiner Arbeiten.</p>
+    </div>
+
+    <div class="projects">
+      {projects.map((p) => (
+        <div class="proj">
+          <div class:list={["proj-media", { light: p.light }]}><span class="slot">Design-Slot</span><div class:list={["ph", p.cls]}></div></div>
+          <div class="proj-text">
+            <span class="cat">{p.cat}</span>
+            <h3>{p.title}</h3>
+            <p set:html={p.text} />
+            <div class="meta">{p.meta}</div>
+          </div>
+        </div>
+      ))}
+
+      <div class="proj">
+        <div class="proj-media">
+          <span class="slot">Design-Slot</span>
+          <div class="logos" style="padding:14px">
+            <div class="logo-tile lt1">Kühberger<br/>Schmuckdesign</div>
+            <div class="logo-tile lt2">monamo</div>
+            <div class="logo-tile lt3">Garden Trend</div>
+            <div class="logo-tile lt4">FULLSTACK</div>
+          </div>
+        </div>
+        <div class="proj-text">
+          <span class="cat">Logos · Branding · Packaging</span>
+          <h3>logos &amp; brands</h3>
+          <p>Logo- und Markenarbeiten für verschiedene Kund:innen — von „Handwerk · Tradition · Design“ (Kühberger Schmuckdesign) über monamo bis Garden Trend und das Packaging-Design für FULLSTACK.</p>
+          <div class="meta">Logo · Branding · Packaging</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <style>
+    .projects { max-width: 1400px; margin: 0 auto; padding: 40px 28px 100px; display: flex; flex-direction: column; gap: 120px; }
+    .proj { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .proj:nth-child(even) .proj-media { order: 2; }
+    .proj-media { position: relative; overflow: hidden; border-radius: 4px; border: 1px solid var(--line-soft); aspect-ratio: 4/5; }
+    .proj-media .slot { position: absolute; top: 14px; left: 16px; font-size: 9.5px; letter-spacing: .12em; color: rgba(236,235,231,.42); text-transform: uppercase; z-index: 2; }
+    .proj-media.light .slot { color: rgba(20,20,22,.42); }
+    .proj-media .ph { position: absolute; inset: 0; }
+    .proj-text .cat { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+    .proj-text h3 { font-weight: 700; font-size: clamp(1.5rem,2.6vw,2.2rem); letter-spacing: -.01em; margin: 14px 0 14px; text-transform: lowercase; }
+    .proj-text p { color: var(--muted); max-width: 46ch; }
+    .proj-text .meta { margin-top: 16px; font-size: 12px; color: var(--muted-2); letter-spacing: .04em; }
+
+    .d-ferrari { background: radial-gradient(80% 100% at 70% 55%, rgba(210,40,40,.42), transparent 55%), linear-gradient(150deg, #20110f, #0c0c10 72%); }
+    .d-surf { background: radial-gradient(90% 90% at 50% 30%, rgba(70,170,175,.45), transparent 60%), linear-gradient(160deg, #123033, #0c1113 78%); }
+    .d-reride { background: linear-gradient(135deg, #d21f2b 0%, #d21f2b 46%, #f4f4f4 46%, #f4f4f4 100%); }
+    .d-atomic { background: radial-gradient(90% 100% at 50% 20%, rgba(255,255,255,.95), transparent 75%), linear-gradient(160deg, #e9e9ec, #cfcfd4 85%); }
+    .d-folder { background: radial-gradient(70% 90% at 30% 20%, rgba(210,40,40,.28), transparent 55%), linear-gradient(150deg, #17181c, #0b0c0f 74%); }
+
+    .logos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; height: 100%; }
+    .logo-tile { aspect-ratio: 16/9; border-radius: 4px; border: 1px solid var(--line-soft); display: grid; place-items: center; font-weight: 700; letter-spacing: .02em; font-size: 15px; color: #e7e7ea; text-align: center; padding: 10px; }
+    .lt1 { background: linear-gradient(150deg, #1a1a1e, #0d0d10); }
+    .lt2 { background: #f4f4f4; color: #1a8fb0; }
+    .lt3 { background: #f4f4f4; color: #2f7d32; }
+    .lt4 { background: linear-gradient(150deg, #161719, #0c0c0f); color: #c6a15b; }
+
+    @media (max-width: 900px) {
+      .proj { grid-template-columns: 1fr; gap: 28px; }
+      .proj:nth-child(even) .proj-media { order: 0; }
+      .projects { gap: 80px; padding: 40px 20px 100px; }
+    }
+  </style>
+</BaseLayout>

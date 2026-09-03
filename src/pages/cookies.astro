@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Cookies | Julian Zauner"
+  description="Cookie-Hinweise von Julian Zauner Fotografie, Salzburg."
+  path="/cookies"
+  current=""
+>
+  <main class="page">
+    <div class="legal">
+      <h1 class="title">cookies</h1>
+      <div class="body">
+        <p><strong>Diese Seite ist ein Platzhalter.</strong> Diese Website verwendet aktuell keine Tracking-Cookies. Sollte später Analytics (z. B. datenschutzfreundlich wie Plausible) ergänzt werden, wird dieser Hinweis entsprechend aktualisiert.</p>
+      </div>
+    </div>
+  </main>
+
+  <style>
+    .legal { max-width: 800px; margin: 0 auto; padding: calc(101px + 78px) 28px 90px; }
+    .body p { color: var(--muted); margin-bottom: 20px; line-height: 1.7; max-width: 65ch; }
+    .body strong { color: var(--text); }
+  </style>
+</BaseLayout>

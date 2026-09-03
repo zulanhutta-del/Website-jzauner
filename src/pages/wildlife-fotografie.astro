@@ -1,0 +1,28 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import GalleryGrid from "../components/GalleryGrid.astro";
+import { wildlifeGallery } from "../data/galleries";
+import { breadcrumbJsonLd } from "../data/business";
+
+const crumbs = breadcrumbJsonLd([
+  { name: "Startseite", path: "/" },
+  { name: "Wildlife-Fotografie", path: "/wildlife-fotografie" },
+]);
+---
+
+<BaseLayout
+  title="Wildlife- & Tierfotografie Salzburg | Julian Zauner"
+  description="Wildlife- und Tierfotografie aus Salzburg: Vögel, Insekten und Wildtiere in Makro- und Naturaufnahmen von Julian Zauner."
+  path="/wildlife-fotografie"
+  current="wildlife-fotografie"
+  jsonLd={[crumbs]}
+>
+  <main class="page">
+    <div class="head">
+      <div class="crumbs"><a href="/">Startseite</a> / wildlife</div>
+      <h1 class="title">wildlife</h1>
+      <p class="intro">Wildlife- &amp; Naturfotografie aus Salzburg — Vögel, Insekten und Wildtiere in Nah- und Makroaufnahmen.</p>
+    </div>
+    <GalleryGrid shots={wildlifeGallery} />
+  </main>
+</BaseLayout>

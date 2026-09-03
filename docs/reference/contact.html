@@ -1,0 +1,136 @@
+<title>contact</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+  :root{--bg:#0C0D10;--surface:#14161B;--line:#2A2E36;--line-soft:#20242B;--text:#ECEBE7;--muted:#8B9099;--muted-2:#5E636D;--accent:#C6A15B}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  header{position:fixed;top:0;left:0;right:0;z-index:100;background:#000;border-bottom:1px solid #191919}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:101px;width:100%;padding:0 40px}
+  .logo{display:flex;flex-direction:column;line-height:.9;font-weight:700;letter-spacing:.14em;font-size:22px;color:#fff}
+  .logo .lg-sub{display:flex;gap:14px;margin-top:7px;font-weight:400;font-size:8.5px;letter-spacing:.28em;color:#7b7f86}
+  .logo .lg-rule{height:1px;background:#3a3d43;margin:5px 0 0}
+  nav.links{display:flex;gap:44px;align-items:center}
+  nav.links a{font-size:16px;color:#d7d8da;transition:color .2s;font-weight:500}
+  nav.links a:hover,nav.links a.active{color:#fff}
+  .ig{display:grid;place-items:center;width:26px;height:26px;color:#d7d8da;transition:color .2s}
+  .ig:hover{color:#fff}.ig svg{width:22px;height:22px}
+  .nav-item{position:relative;display:flex;align-items:center}
+  .drop-trigger{cursor:pointer}
+  .dropdown{position:absolute;top:calc(100% + 40px);left:50%;transform:translateX(-50%) translateY(-8px);background:#0b0b0d;border:1px solid #232323;border-radius:5px;padding:8px;min-width:190px;display:flex;flex-direction:column;gap:2px;opacity:0;visibility:hidden;transition:opacity .22s,transform .22s,visibility .22s;z-index:120;box-shadow:0 24px 60px rgba(0,0,0,.55)}
+  .nav-item.open .dropdown{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+  .dropdown a{padding:11px 15px;border-radius:4px;font-size:15px;color:#cfd1d4;text-transform:lowercase;font-weight:500}
+  .dropdown a:hover{background:#17181c;color:#fff}
+
+  main{padding:101px 40px 0}
+  .contact-wrap{max-width:1500px;margin:0 auto;padding:78px 0 90px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+  h1.title{font-weight:700;color:#fff;font-size:clamp(3rem,7vw,5.6rem);letter-spacing:-.01em;line-height:1;text-transform:lowercase;margin-bottom:70px}
+  .info{color:var(--text);font-size:1.06rem;line-height:1.9}
+  .info .name{margin-bottom:28px}
+  .info a.mail{border-bottom:1px solid var(--muted);padding-bottom:1px;transition:border-color .2s,color .2s}
+  .info a.mail:hover{color:#fff;border-color:#fff}
+  .info .ig-line{margin-top:6px;color:var(--text)}
+
+  /* form */
+  form{display:grid;grid-template-columns:1fr 1fr;gap:34px 30px;margin-top:8px}
+  .field{display:flex;flex-direction:column}
+  .field.full{grid-column:1 / -1}
+  .field label{font-size:14px;color:var(--muted);margin-bottom:10px}
+  .field input,.field textarea{
+    background:transparent;border:0;border-bottom:1px solid var(--line);
+    color:var(--text);font-family:inherit;font-size:16px;padding:8px 0;transition:border-color .2s;
+  }
+  .field textarea{resize:vertical;min-height:120px}
+  .field input:focus,.field textarea:focus{outline:none;border-bottom-color:#fff}
+  .actions{grid-column:1 / -1;display:flex;justify-content:flex-end}
+  .send{
+    background:transparent;border:1px solid var(--line);color:var(--text);
+    font-family:inherit;font-size:15px;letter-spacing:.02em;padding:15px 40px;cursor:pointer;transition:all .22s;
+  }
+  .send:hover{background:#fff;color:#000;border-color:#fff}
+
+  footer{border-top:1px solid var(--line-soft);padding:34px 40px;margin-top:40px}
+  .foot{max-width:1500px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:12.5px;color:var(--muted);letter-spacing:.04em}
+  .foot a:hover{color:var(--accent)}
+
+  @media(max-width:900px){
+    .nav{padding:0 20px}nav.links{display:none}
+    main{padding-left:20px;padding-right:20px}
+    .contact-wrap{grid-template-columns:1fr;gap:48px}
+    h1.title{margin-bottom:36px}
+    form{margin-top:0}
+  }
+  @media(max-width:560px){
+    form{grid-template-columns:1fr}
+    .field.half{grid-column:1 / -1}
+  }
+</style>
+<header>
+  <div class="nav">
+    <a class="logo" href="index.html" aria-label="Zauner Visuals — Home"><span>ZAUNER</span><span>VISUALS</span><span class="lg-rule"></span><span class="lg-sub"><span>PHOTO</span><span>VIDEO</span><span>DESIGN</span></span></a>
+    <nav class="links">
+      <div class="nav-item" id="fotoDrop">
+        <a href="gallery-cars.html" class="drop-trigger">Photo</a>
+        <div class="dropdown" role="menu">
+          <a href="gallery-cars.html" role="menuitem">cars</a>
+          <a href="gallery-creative.html" role="menuitem">creative</a>
+          <a href="gallery-landscape.html" role="menuitem">landscape</a>
+          <a href="gallery-wildlife.html" role="menuitem">wildlife</a>
+        </div>
+      </div>
+      <a href="design.html">Design</a>
+      <a href="about.html">About me</a>
+      <a href="#" class="active">Contact</a>
+      <a class="ig" href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="contact-wrap">
+    <div class="left">
+      <h1 class="title">contact</h1>
+      <div class="info">
+        <div class="name">Julian Zauner<br>5303 Thalgau/Salzburg</div>
+        <a class="mail" href="mailto:julianzauner@icloud.com">email: julianzauner@icloud.com</a>
+        <div class="ig-line">Instagram: jzauner_</div>
+      </div>
+    </div>
+
+    <div class="right">
+      <form onsubmit="return false">
+        <div class="field half">
+          <label for="fn">First name</label>
+          <input id="fn" name="firstname" type="text" autocomplete="given-name">
+        </div>
+        <div class="field half">
+          <label for="ln">Last name</label>
+          <input id="ln" name="lastname" type="text" autocomplete="family-name">
+        </div>
+        <div class="field half">
+          <label for="em">Email address *</label>
+          <input id="em" name="email" type="email" autocomplete="email">
+        </div>
+        <div class="field half">
+          <label for="ph">Phone</label>
+          <input id="ph" name="phone" type="tel" autocomplete="tel">
+        </div>
+        <div class="field full">
+          <label for="msg">Leave a message</label>
+          <textarea id="msg" name="message"></textarea>
+        </div>
+        <div class="actions">
+          <button class="send" type="submit">Send</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+
+<footer><div class="foot"><span>© 2026 Julian Zauner</span><span style="display:flex;gap:28px"><a href="#">Privacy</a><a href="#">Cookies</a><a href="#">Imprint</a></span></div></footer>
+
+<script>
+  (function(){const item=document.getElementById('fotoDrop');if(!item)return;const t=item.querySelector('.drop-trigger');t.addEventListener('click',e=>{e.preventDefault();item.classList.toggle('open');});document.addEventListener('click',e=>{if(!item.contains(e.target))item.classList.remove('open');});document.addEventListener('keydown',e=>{if(e.key==='Escape')item.classList.remove('open');});})();
+</script>
