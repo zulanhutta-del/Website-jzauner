@@ -7,42 +7,91 @@ const crumbs = breadcrumbJsonLd([
   { name: "Grafikdesign", path: "/design" },
 ]);
 
-const projects = [
+const posterPair = [
   {
-    cls: "d-ferrari",
-    cat: "Poster · Editorial",
-    title: "ferrari aesthetics",
-    text: "„Performance“-Poster für den Ferrari 296 GTB — Ziel war es, Leistung sichtbar zu machen: elegant, kompromisslos, unverkennbar Ferrari. Bild, Typografie und Layout aus einer Hand.",
-    meta: "Posterdesign · 2024",
+    img: "/images/Grafikdesign/design-01-ferrari-aesthetics.jpg",
+    alt: "Poster „Ferrari Aesthetics“ für den Ferrari 296 GTB",
+    cat: "Editorial Design · Fotografie",
+    title: "Ferrari Aesthetics",
+    meta: "Posterdesign · 2026",
   },
   {
-    cls: "d-surf",
-    cat: "Editorial Design",
+    img: "/images/Grafikdesign/design-08-lando-norris-poster.jpg",
+    alt: "Sport-Poster von Lando Norris (McLaren F1) beim Singapore GP 2023",
+    cat: "Poster · Sportdesign",
+    title: "motorsportposter - mclaren f1",
+    meta: "Posterdesign · 2026",
+  },
+];
+
+const projects = [
+  {
+    type: "cluster",
+    flip: false,
+    cat: "Branding · Editorial Design · Druck",
     title: "surfer mag „breakzone“",
     text: "Editorial-Design-Projekt: ein Surf-Magazin von der Coverseite bis zu den Innenspreads — Titel, Raster, Typografie und Bildsprache für ein durchgängiges Heftgefühl.",
     meta: "Editorial · 2023",
+    images: [
+      { src: "/images/Grafikdesign/design-02-breakzone-cover.jpg", alt: "Cover des Surf-Magazins „Breakzone“", style: "width:56%; top:0; right:0; z-index:3; transform:rotate(1.5deg);" },
+      { src: "/images/Grafikdesign/design-02b-breakzone-spread1.jpg", alt: "Innenspread des Surf-Magazins „Breakzone“, Windsurfer im Wellental", style: "width:52%; bottom:6%; left:0; z-index:2; transform:rotate(-2deg);" },
+      { src: "/images/Grafikdesign/design-02c-breakzone-spread2.jpg", alt: "Innenspread des Surf-Magazins „Breakzone“, Surfer in der Röhre", style: "width:40%; bottom:0; right:10%; z-index:1; transform:rotate(2deg);" },
+    ],
   },
   {
-    cls: "d-reride",
+    type: "cluster",
+    flip: false,
+    cat: "Produkt Kampagne · Fotografie",
+    title: "atomic revent goggle",
+    text: "Foto- &amp; Design-Projekt für die Skibrille „Revent Goggle“ — Produktinszenierung und Anzeigen-Layout mit technischer Bildsprache. Model: Luna Ceschin.",
+    meta: "Produktdesign · 2024",
+    images: [
+      { src: "/images/Grafikdesign/design-04-atomic-revent-goggle.jpg", alt: "Werbe-Sujet Atomic Revent Goggle, Model im Dehnsprung", style: "width:46%; top:0; left:4%; z-index:2; transform:rotate(-2deg);" },
+      { src: "/images/Grafikdesign/design-04b-atomic-revent-goggle-2.jpg", alt: "Werbe-Sujet Atomic Revent Goggle, Model kniend", style: "width:48%; top:4%; right:0; z-index:3; transform:rotate(1.5deg);" },
+      { src: "/images/Grafikdesign/design-04c-atomic-revent-goggle-3.jpg", alt: "Werbe-Sujet Atomic Revent Goggle, Model im Profil", style: "width:38%; bottom:0; left:22%; z-index:1; transform:rotate(2deg);" },
+    ],
+  },
+  {
+    type: "video",
+    flip: true,
+    video: "/images/Grafikdesign/design-03-reride-slideshow.mp4",
+    poster: "/images/Grafikdesign/design-03-reride-card.png",
+    alt: "RERIDE Corporate-Design-Slideshow",
     cat: "Corporate Design",
     title: "reride",
     text: "Schulprojekt 2024: ein komplettes Corporate Design aus einer eigenen Idee entwickelt — Logo, Geschäftsausstattung (inkl. Visitenkarte) und drei Werbeposter.",
     meta: "Branding · Logo · Print · 2024",
   },
   {
-    cls: "d-atomic",
-    light: true,
-    cat: "Produkt · Ad-Design",
-    title: "atomic revent goggle",
-    text: "Foto- &amp; Design-Projekt für die Skibrille „Revent Goggle“ — Produktinszenierung und Anzeigen-Layout mit technischer Bildsprache. Model: Luna Ceschin.",
-    meta: "Produktdesign · 2024",
-  },
-  {
-    cls: "d-folder",
+    type: "video",
+    flip: false,
+    video: "/images/Grafikdesign/design-05-imagefolder-slideshow.mov",
+    poster: "/images/Grafikdesign/design-05-imagefolder-regear.jpg",
+    alt: "Image-Folder „Regear“ Slideshow",
     cat: "Broschüre · InDesign",
     title: "image-folder",
     text: "Schulprojekt 2023, gestaltet und produziert in Adobe InDesign: eine Image-Broschüre für eine Marke — inklusive Konkurrenzanalyse sowie Satzspiegel, Layout und Raster.",
     meta: "Editorial · Print · 2023",
+  },
+  {
+    type: "single",
+    flip: true,
+    img: "/images/Grafikdesign/design-06-kuehberger-poster.jpg",
+    alt: "Werbeplakat „Handwerk Tradition Design“ für Kühberger Schmuckdesign",
+    cat: "Branding · Druck · Produkt Fotografie",
+    title: "kühberger schmuckdesign",
+    text: "Werbeplakat für das Schmuckatelier Kühberger — Handwerk, Tradition und Design in einem ruhigen, hochwertigen Bildkonzept mit Fokus auf die Ringe und das Markenversprechen.",
+    meta: "Posterdesign · Branding",
+  },
+  {
+    type: "single",
+    flip: false,
+    img: "/images/Grafikdesign/design-07-fullstack-packaging.jpg",
+    alt: "Verpackungsdesign „Full Stack“ Proteinriegel für die Marke FULLSTACK",
+    cat: "Branding · Verpackungsdesign",
+    title: "beastblock protein-bar",
+    text: "Verpackungsdesign für einen Proteinriegel — Markenauftritt, Typografie und Produktrendering für ein kraftvolles, sportliches Packaging.",
+    meta: "Packaging · Produktdesign",
   },
 ];
 ---
@@ -62,9 +111,52 @@ const projects = [
     </div>
 
     <div class="projects">
-      {projects.map((p) => (
-        <div class="proj">
-          <div class:list={["proj-media", { light: p.light }]}><span class="slot">Design-Slot</span><div class:list={["ph", p.cls]}></div></div>
+      <div class="proj" class:list={[{ flip: projects[0].flip }]}>
+        <div class="proj-cluster">
+          {projects[0].images!.map((im) => (
+            <img src={im.src} alt={im.alt} loading="lazy" style={im.style} />
+          ))}
+        </div>
+        <div class="proj-text">
+          <span class="cat">{projects[0].cat}</span>
+          <h3>{projects[0].title}</h3>
+          <p set:html={projects[0].text} />
+          <div class="meta">{projects[0].meta}</div>
+        </div>
+      </div>
+
+      <div class="poster-pair">
+        {posterPair.map((p) => (
+          <div class="pair-col">
+            <div class="pair-cap">
+              <span class="cat">{p.cat}</span>
+              <h3>{p.title}</h3>
+              <div class="meta">{p.meta}</div>
+            </div>
+            <img src={p.img} alt={p.alt} loading="lazy" />
+          </div>
+        ))}
+      </div>
+
+      {projects.slice(1).map((p) => (
+        <div class="proj" class:list={[{ flip: p.flip }]}>
+          {p.type === "cluster" ? (
+            <div class="proj-cluster">
+              {p.images!.map((im) => (
+                <img src={im.src} alt={im.alt} loading="lazy" style={im.style} />
+              ))}
+            </div>
+          ) : p.type === "video" ? (
+            <div class="proj-media">
+              <video class="scroll-video" controls muted loop playsinline preload="metadata" poster={p.poster} aria-label={p.alt}>
+                <source src={p.video} />
+              </video>
+            </div>
+          ) : (
+            <div class="proj-media">
+              <img src={p.img} alt={p.alt} loading="lazy" />
+            </div>
+          )}
           <div class="proj-text">
             <span class="cat">{p.cat}</span>
             <h3>{p.title}</h3>
@@ -74,56 +166,83 @@ const projects = [
         </div>
       ))}
 
-      <div class="proj">
-        <div class="proj-media">
-          <span class="slot">Design-Slot</span>
-          <div class="logos" style="padding:14px">
-            <div class="logo-tile lt1">Kühberger<br/>Schmuckdesign</div>
-            <div class="logo-tile lt2">monamo</div>
-            <div class="logo-tile lt3">Garden Trend</div>
-            <div class="logo-tile lt4">FULLSTACK</div>
-          </div>
+      <div class="proj flip">
+        <div class="proj-logos">
+          <img class="logo-monamo" src="/images/Grafikdesign/design-09-monamo-logo.png" alt="monamo Logo" loading="lazy" />
         </div>
         <div class="proj-text">
-          <span class="cat">Logos · Branding · Packaging</span>
-          <h3>logos &amp; brands</h3>
-          <p>Logo- und Markenarbeiten für verschiedene Kund:innen — von „Handwerk · Tradition · Design“ (Kühberger Schmuckdesign) über monamo bis Garden Trend und das Packaging-Design für FULLSTACK.</p>
-          <div class="meta">Logo · Branding · Packaging</div>
+          <span class="cat">Logos · Branding</span>
+          <h3>monamo</h3>
+          <p>Logodesign für monamo Anti-Schuppen-Shampoo.</p>
+          <div class="meta">Logo · Branding</div>
         </div>
       </div>
     </div>
   </main>
 
   <style>
-    .projects { max-width: 1400px; margin: 0 auto; padding: 40px 28px 100px; display: flex; flex-direction: column; gap: 120px; }
+    .projects { max-width: 1400px; margin: 0 auto; padding: 40px 28px 100px; display: flex; flex-direction: column; gap: 140px; }
     .proj { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-    .proj:nth-child(even) .proj-media { order: 2; }
-    .proj-media { position: relative; overflow: hidden; border-radius: 4px; border: 1px solid var(--line-soft); aspect-ratio: 4/5; }
-    .proj-media .slot { position: absolute; top: 14px; left: 16px; font-size: 9.5px; letter-spacing: .12em; color: rgba(236,235,231,.42); text-transform: uppercase; z-index: 2; }
-    .proj-media.light .slot { color: rgba(20,20,22,.42); }
-    .proj-media .ph { position: absolute; inset: 0; }
-    .proj-text .cat { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
-    .proj-text h3 { font-weight: 700; font-size: clamp(1.5rem,2.6vw,2.2rem); letter-spacing: -.01em; margin: 14px 0 14px; text-transform: lowercase; }
+    .proj.flip .proj-media,
+    .proj.flip .proj-cluster,
+    .proj.flip .proj-logos { order: 2; }
+
+    .proj-media img, .proj-media video {
+      display: block; width: 100%; height: auto; border-radius: 2px;
+      box-shadow: 0 24px 60px rgba(0,0,0,.5); background: #000;
+    }
+
+    .proj-cluster { position: relative; min-height: 440px; }
+    .proj-cluster img {
+      position: absolute; border-radius: 2px; box-shadow: 0 20px 50px rgba(0,0,0,.55);
+      display: block; width: 100%; height: auto;
+    }
+
+    .poster-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: end; }
+    .pair-col img {
+      display: block; width: 80%; height: auto; border-radius: 2px;
+      box-shadow: 0 24px 60px rgba(0,0,0,.5);
+    }
+    .pair-cap { margin-bottom: 20px; }
+
+    .proj-logos { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
+    .logo-monamo { width: 220px; max-width: 46%; border-radius: 2px; box-shadow: 0 16px 40px rgba(0,0,0,.4); }
+
+    .proj-text .cat, .pair-cap .cat { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #970303; }
+    .proj-text h3, .pair-cap h3 { font-weight: 700; font-size: clamp(1.5rem,2.6vw,2.2rem); letter-spacing: -.01em; margin: 14px 0 14px; text-transform: lowercase; }
+    .pair-cap h3 { font-size: clamp(1.2rem,2vw,1.6rem); margin: 10px 0 8px; }
     .proj-text p { color: var(--muted); max-width: 46ch; }
-    .proj-text .meta { margin-top: 16px; font-size: 12px; color: var(--muted-2); letter-spacing: .04em; }
-
-    .d-ferrari { background: radial-gradient(80% 100% at 70% 55%, rgba(210,40,40,.42), transparent 55%), linear-gradient(150deg, #20110f, #0c0c10 72%); }
-    .d-surf { background: radial-gradient(90% 90% at 50% 30%, rgba(70,170,175,.45), transparent 60%), linear-gradient(160deg, #123033, #0c1113 78%); }
-    .d-reride { background: linear-gradient(135deg, #d21f2b 0%, #d21f2b 46%, #f4f4f4 46%, #f4f4f4 100%); }
-    .d-atomic { background: radial-gradient(90% 100% at 50% 20%, rgba(255,255,255,.95), transparent 75%), linear-gradient(160deg, #e9e9ec, #cfcfd4 85%); }
-    .d-folder { background: radial-gradient(70% 90% at 30% 20%, rgba(210,40,40,.28), transparent 55%), linear-gradient(150deg, #17181c, #0b0c0f 74%); }
-
-    .logos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; height: 100%; }
-    .logo-tile { aspect-ratio: 16/9; border-radius: 4px; border: 1px solid var(--line-soft); display: grid; place-items: center; font-weight: 700; letter-spacing: .02em; font-size: 15px; color: #e7e7ea; text-align: center; padding: 10px; }
-    .lt1 { background: linear-gradient(150deg, #1a1a1e, #0d0d10); }
-    .lt2 { background: #f4f4f4; color: #1a8fb0; }
-    .lt3 { background: #f4f4f4; color: #2f7d32; }
-    .lt4 { background: linear-gradient(150deg, #161719, #0c0c0f); color: #c6a15b; }
+    .proj-text .meta, .pair-cap .meta { margin-top: 16px; font-size: 12px; color: var(--muted-2); letter-spacing: .04em; }
 
     @media (max-width: 900px) {
       .proj { grid-template-columns: 1fr; gap: 28px; }
-      .proj:nth-child(even) .proj-media { order: 0; }
-      .projects { gap: 80px; padding: 40px 20px 100px; }
+      .proj.flip .proj-media,
+      .proj.flip .proj-cluster,
+      .proj.flip .proj-logos { order: 0; }
+      .projects { gap: 90px; padding: 40px 20px 100px; }
+
+      .proj-cluster { min-height: 0; display: flex; flex-direction: column; gap: 16px; }
+      .proj-cluster img { position: static; width: 100%; transform: none !important; }
+
+      .poster-pair { grid-template-columns: 1fr; gap: 48px; }
     }
   </style>
+
+  <script>
+    const videos = document.querySelectorAll<HTMLVideoElement>(".scroll-video");
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target as HTMLVideoElement;
+          if (entry.isIntersecting) {
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+    videos.forEach((v) => io.observe(v));
+  </script>
 </BaseLayout>

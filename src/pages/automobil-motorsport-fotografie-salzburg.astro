@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import GalleryGrid from "../components/GalleryGrid.astro";
-import { carsGallery } from "../data/galleries";
+import { automotiveGallery, motorsportGallery } from "../data/galleries";
 import { faqJsonLd, breadcrumbJsonLd } from "../data/business";
 
 const faq = [
@@ -51,34 +51,15 @@ const crumbs = breadcrumbJsonLd([
       <p class="intro">Automobil- &amp; Motorsportfotografie in Salzburg.</p>
     </div>
 
-    <div class="pillar-copy">
-      <p>
-        Julian Zauner ist ein auf Automobil- und Motorsportfotografie spezialisierter Fotograf aus
-        Salzburg (Thalgau). Er fotografiert Autos, Fahrzeug-Details und Rolling Shots für Autohäuser,
-        Tuner, Sammler und Privatpersonen und deckt darüber hinaus Motorsport-Action auf der
-        Rennstrecke ab — inklusive professioneller Bildbearbeitung.
-      </p>
-      <p>
-        Der Fokus liegt auf cinematischen, kontrastreichen Bildern: dramatisches Licht, klare
-        Linienführung am Fahrzeug und Aufnahmen, die die Persönlichkeit eines Autos zeigen statt es
-        nur zu dokumentieren. Das Portfolio reicht von Ferraris und Porsches über Drift-Autos bis zu
-        Rennwagen im Renneinsatz — Street-Shootings genauso wie Showroom- und Trackday-Coverage.
-      </p>
-      <p>
-        Shootings finden vorwiegend in Salzburg und im Salzburger Land statt, für Renntage und
-        besondere Projekte ist auch überregionale Anreise in Österreich möglich. Jedes Shooting wird
-        individuell geplant — Location, Tageszeit und Stil werden vorab gemeinsam abgestimmt, damit
-        das Ergebnis zum Fahrzeug und zum Anlass passt.
-      </p>
-      <p>
-        Julian hat an der HTL Salzburg Grafik- &amp; Mediendesign studiert und bringt dieses Auge für
-        Gestaltung direkt in die Bildbearbeitung ein — jedes Foto wird bis zur finalen Datei
-        durchgezogen, nicht nur aufgenommen. Wer ein Auto-Shooting, eine Renntag-Begleitung oder eine
-        ganze Bildkampagne plant, ist hier richtig.
-      </p>
+    <div class="gallery-head">
+      <h2>Automobilfotografie</h2>
     </div>
+    <GalleryGrid shots={automotiveGallery} />
 
-    <GalleryGrid shots={carsGallery} />
+    <div class="gallery-head">
+      <h2>Motorsportfotografie</h2>
+    </div>
+    <GalleryGrid shots={motorsportGallery} />
 
     <div class="faq-wrap">
       <h2>Häufige Fragen zu Auto- &amp; Motorsportfotografie</h2>
@@ -94,8 +75,8 @@ const crumbs = breadcrumbJsonLd([
   </main>
 
   <style>
-    .pillar-copy { max-width: 1600px; margin: 0 auto; padding: 0 0 30px; }
-    .pillar-copy p { color: var(--muted); max-width: 78ch; margin-bottom: 18px; font-size: 1.02rem; line-height: 1.7; }
+    .gallery-head { max-width: 1600px; margin: 0 auto; padding: 10px 0 24px; }
+    .gallery-head h2 { font-weight: 700; font-size: clamp(1.5rem, 2.6vw, 2rem); letter-spacing: -.01em; text-transform: lowercase; }
     .faq-wrap { max-width: 900px; margin: 0 auto; padding: 20px 0 100px; }
     .faq-wrap h2 { font-weight: 700; font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 20px; letter-spacing: -.01em; }
     .faq { }

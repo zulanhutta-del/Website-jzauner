@@ -12,19 +12,58 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <div class="legal">
       <h1 class="title">impressum</h1>
       <div class="body">
-        <p><strong>Diese Seite ist ein Platzhalter.</strong> Der rechtlich verbindliche Impressum-Text (Angaben nach § 5 ECG / Mediengesetz) muss noch von Julian ergänzt werden, bevor die Website live geht.</p>
+        <h2>Angaben gemäß § 5 ECG</h2>
         <p>
           Julian Zauner<br />
-          5303 Thalgau, Salzburg, Österreich<br />
-          E-Mail: julianzauner@icloud.com
+          Neu-Anspacher Straße 17<br />
+          5303 Thalgau, Österreich
+        </p>
+        <p>
+          Telefon: +43 (0)680 3092015<br />
+          E-Mail: <a href="mailto:julianzauner@icloud.com">julianzauner@icloud.com</a><br />
+          Website: <a href="https://www.julianzauner.at">www.julianzauner.at</a>
+        </p>
+        <p>Tätigkeitsbereich: Fotografie, Videografie und Grafikdesign.</p>
+
+        <h2>Offenlegung gemäß § 25 Mediengesetz</h2>
+        <p>
+          Medieninhaber und für den Inhalt verantwortlich: Julian Zauner (Anschrift wie oben).
+          Grundlegende Richtung: Präsentation eigener fotografischer, videografischer und
+          gestalterischer Arbeiten sowie Kontaktmöglichkeit für Projektanfragen.
+        </p>
+
+        <h2>Urheberrecht</h2>
+        <p>
+          Alle auf dieser Website veröffentlichten Fotos, Videos und Design-Arbeiten sind
+          urheberrechtlich geschützt. Eine Verwendung ohne vorherige schriftliche Zustimmung
+          ist nicht gestattet.
+        </p>
+
+        <h2>Haftungsausschluss</h2>
+        <p>
+          Trotz sorgfältiger inhaltlicher Kontrolle wird keine Haftung für die Inhalte externer,
+          verlinkter Seiten übernommen — für deren Inhalte sind ausschließlich die jeweiligen
+          Betreiber verantwortlich.
+        </p>
+
+        <h2>EU-Streitschlichtung</h2>
+        <p>
+          Plattform der EU-Kommission zur Online-Streitbeilegung:
+          <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">ec.europa.eu/consumers/odr</a>.
+          An einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle nehme ich
+          nicht teil.
         </p>
       </div>
     </div>
   </main>
 
   <style>
-    .legal { max-width: 800px; margin: 0 auto; padding: calc(101px + 78px) 28px 90px; }
+    .legal { max-width: 800px; margin: 0 auto; padding: calc(var(--header-h) + 78px) 28px 90px; }
+    .body h2 { color: var(--text); font-size: 1.05rem; font-weight: 700; margin: 36px 0 12px; }
+    .body h2:first-child { margin-top: 0; }
     .body p { color: var(--muted); margin-bottom: 20px; line-height: 1.7; max-width: 65ch; }
     .body strong { color: var(--text); }
+    .body a { color: var(--accent); border-bottom: 1px solid transparent; transition: border-color .2s; }
+    .body a:hover { border-color: var(--accent); }
   </style>
 </BaseLayout>

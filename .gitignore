@@ -22,3 +22,19 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Grafikdesign: unbearbeitete Rohdateien (nicht von der Website referenziert, nur lokale Ablage)
+public/images/Grafikdesign/4c4856d2-cdc0-417f-ab97-79bb3caaed76.JPG
+public/images/Grafikdesign/4e407c2a-3ccc-4c27-b676-dbee2ba1395a.JPG
+public/images/Grafikdesign/7c7e88a8-ba53-44ca-9d24-2ca867f57dcd.JPG
+public/images/Grafikdesign/Bildschirmaufnahme*.mov
+public/images/Grafikdesign/Bildschirmfoto*.png
+public/images/Grafikdesign/ImageFolderDruckbögen_Jzauner.pdf
+public/images/Grafikdesign/ImageFolderslideshow.mov
+public/images/Grafikdesign/LAMPCover.jpg
+public/images/Grafikdesign/PlakatFoto01.jpg
+public/images/Grafikdesign/Protein-bar-mockup-03.jpg
+public/images/Grafikdesign/SlideshowRERIDE_Jzauner.mp4
+public/images/Grafikdesign/ferrariposter02.jpg
+public/images/Grafikdesign/landonorrisf1plakat.jpg
+public/images/LogoJZblack.jpg

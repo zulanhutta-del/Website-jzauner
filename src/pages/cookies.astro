@@ -12,14 +12,26 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <div class="legal">
       <h1 class="title">cookies</h1>
       <div class="body">
-        <p><strong>Diese Seite ist ein Platzhalter.</strong> Diese Website verwendet aktuell keine Tracking-Cookies. Sollte später Analytics (z. B. datenschutzfreundlich wie Plausible) ergänzt werden, wird dieser Hinweis entsprechend aktualisiert.</p>
+        <p>
+          Diese Website verwendet aktuell keine Analyse-, Marketing- oder Tracking-Cookies. Es
+          werden nur technisch notwendige Daten verarbeitet, wie in der
+          <a href="/datenschutz">Datenschutzerklärung</a> beschrieben.
+        </p>
+        <p>
+          Solltest du dennoch in deinem Browser gespeicherte Daten löschen wollen, kannst du das
+          Speichern von Cookies jederzeit in den Einstellungen deines Browsers einschränken oder
+          deaktivieren. Sollte diese Website künftig datenschutzfreundliche Analytics (z. B.
+          Plausible) einsetzen, wird dieser Hinweis entsprechend aktualisiert.
+        </p>
       </div>
     </div>
   </main>
 
   <style>
-    .legal { max-width: 800px; margin: 0 auto; padding: calc(101px + 78px) 28px 90px; }
+    .legal { max-width: 800px; margin: 0 auto; padding: calc(var(--header-h) + 78px) 28px 90px; }
     .body p { color: var(--muted); margin-bottom: 20px; line-height: 1.7; max-width: 65ch; }
     .body strong { color: var(--text); }
+    .body a { color: var(--accent); border-bottom: 1px solid transparent; transition: border-color .2s; }
+    .body a:hover { border-color: var(--accent); }
   </style>
 </BaseLayout>

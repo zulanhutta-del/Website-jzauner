@@ -1,14 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { heroSlides } from "../data/galleries";
-import { faqJsonLd } from "../data/business";
-
-const faq = [
-  { q: "Welche Art von Fotografie bietet Julian Zauner an?", a: "Julian Zauner fotografiert Automobile & Motorsport, Wildlife, Landschaft und kreative Composings, dreht Video und übernimmt Grafikdesign & Branding — von der Aufnahme bis zur fertigen Bilddatei aus einer Hand." },
-  { q: "In welchen Regionen bist du unterwegs?", a: "Basis ist Thalgau bei Salzburg. Shootings finden im gesamten Salzburger Land statt, für Renntage und Projekte auch überregional in Österreich." },
-  { q: "Wie kann ich ein Shooting anfragen?", a: "Am einfachsten über das Kontaktformular oder direkt per E-Mail an julianzauner@icloud.com — kurz Projekt, Wunschtermin und Ort beschreiben, der Rest wird gemeinsam abgestimmt." },
-  { q: "Bietest du auch Video und Design an?", a: "Ja. Neben Fotografie entstehen Video-Edits sowie Grafikdesign- und Branding-Arbeiten — Logo, Editorial, Poster und Verpackung, siehe die Design-Projekte auf dieser Seite." },
-];
 ---
 
 <BaseLayout
@@ -16,7 +8,6 @@ const faq = [
   description="Julian Zauner: Fotograf & Videograf aus Salzburg, spezialisiert auf Automobil- und Motorsportfotografie. Cinematische Bilder, jetzt Projekt anfragen."
   path="/"
   current=""
-  jsonLd={[faqJsonLd(faq)]}
 >
   <main id="top">
     <!-- HERO CAROUSEL -->
@@ -52,7 +43,7 @@ const faq = [
           <a class="btn-pill" href="/ueber-mich" style="margin-top:16px;border-color:rgba(255,255,255,.35)">mehr erfahren</a>
         </div>
         <div class="about-photo reveal">
-          <img src="/images/hero/hero-cars-ferrari.jpg" alt="Julian Zauner bei der Arbeit" loading="lazy" />
+          <img src="/images/profilbild/_MG_5455_1.jpg" alt="Julian Zauner mit Kamera" loading="lazy" />
         </div>
       </div>
     </section>
@@ -64,13 +55,13 @@ const faq = [
       </div>
       <div class="work">
         <a class="tile big reveal" href="/automobil-motorsport-fotografie-salzburg">
-          <img class="ph" src="/images/cars/cars-01-ferrari-296-street.jpg" alt="Automobilfotografie" loading="lazy" />
+          <img class="ph" src="/images/cars/automotive/_MG_7711.jpg" alt="Automobilfotografie" loading="lazy" />
           <span class="go">↗</span>
           <span class="cap">Automobilfotografie</span>
           <h3>Automobil</h3>
         </a>
         <a class="tile tall reveal" href="/automobil-motorsport-fotografie-salzburg">
-          <img class="ph" src="/images/cars/cars-04-porsche-911-track.jpg" alt="Motorsportfotografie" loading="lazy" />
+          <img class="ph" src="/images/cars/motorsport/_MG_1481.jpg" alt="Motorsportfotografie" loading="lazy" style="object-position: 63% 50%;" />
           <span class="go">↗</span>
           <span class="cap">Motorsport · Strecke</span>
           <h3>Motorsport</h3>
@@ -88,7 +79,7 @@ const faq = [
           <h3>Landschaft</h3>
         </a>
         <a class="tile third reveal" href="/wildlife-fotografie">
-          <img class="ph" src="/images/wildlife/wildlife-02-fire-salamander.jpg" alt="Wildlife-Fotografie" loading="lazy" />
+          <img class="ph" src="/images/wildlife/wildlife-23-wasp-wood.jpg" alt="Wildlife-Fotografie" loading="lazy" style="object-position: 50% 60%;" />
           <span class="go">↗</span>
           <span class="cap">Wildlife</span>
           <h3>Wildlife</h3>
@@ -96,66 +87,6 @@ const faq = [
       </div>
     </section>
 
-    <!-- LEISTUNGEN -->
-    <section class="sec wrap" id="leistungen">
-      <div class="sec-head reveal">
-        <h2 style="text-transform:none">Leistungen</h2>
-        <p>Foto, Video und Design aus einer Hand.</p>
-      </div>
-      <div class="services">
-        <div class="svc reveal">
-          <div class="num">01</div>
-          <h3>Automobil- & Motorsportfotografie</h3>
-          <p>Car-Shootings, Rolling Shots, Detailaufnahmen und Renntag-Coverage in Salzburg und Österreich.</p>
-          <div class="tags"><span>Auto-Shooting</span><span>Rennstrecke</span><span>Rolling Shot</span></div>
-        </div>
-        <div class="svc reveal">
-          <div class="num">02</div>
-          <h3>Wildlife & Landschaft</h3>
-          <p>Naturfotografie in den Salzburger Alpen und der Umgebung — von Makroaufnahmen bis zum Alpenpanorama.</p>
-          <div class="tags"><span>Tierfotografie</span><span>Landschaft</span><span>Makro</span></div>
-        </div>
-        <div class="svc reveal">
-          <div class="num">03</div>
-          <h3>Video</h3>
-          <p>Bewegtbild rund um dieselben Themen — vom Renntag-Recap bis zum kurzen Cinematic-Edit.</p>
-          <div class="tags"><span>Videografie</span><span>Schnitt</span></div>
-        </div>
-        <div class="svc reveal">
-          <div class="num">04</div>
-          <h3>Grafikdesign & Branding</h3>
-          <p>Corporate Design, Editorial, Poster und Packaging — ausgebildet an der HTL Salzburg in Grafik- & Mediendesign.</p>
-          <div class="tags"><span>Branding</span><span>Editorial</span><span>Print</span></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="sec wrap" id="faq">
-      <div class="sec-head reveal">
-        <h2 style="text-transform:none">Häufige Fragen</h2>
-      </div>
-      <div class="faq reveal">
-        {faq.map((item) => (
-          <details class="qa">
-            <summary>{item.q}<span class="plus">+</span></summary>
-            <div class="a">{item.a}</div>
-          </details>
-        ))}
-      </div>
-    </section>
-
-    <!-- CONTACT CTA -->
-    <section class="contact wrap reveal">
-      <h2>Lass uns etwas <span class="gold">Sichtbares</span> schaffen.</h2>
-      <p>Ob Auto-Shooting, Renntag oder komplette Bildkampagne — erzähl mir von deinem Projekt.</p>
-      <div class="hero-cta">
-        <a class="btn-pill" href="/kontakt">Projekt anfragen <span class="ar">→</span></a>
-      </div>
-      <div class="addr">
-        <b>Julian Zauner</b> · 5303 Thalgau/Salzburg · julianzauner@icloud.com
-      </div>
-    </section>
   </main>
 
   <style>
@@ -177,13 +108,14 @@ const faq = [
       font-weight: 800; color: #fff; text-transform: uppercase; letter-spacing: -.02em;
       line-height: .94; font-size: clamp(2.6rem, 8vw, 7rem); text-wrap: balance;
       opacity: 0; transform: translateY(22px); transition: .8s .1s;
+      display: flex; align-items: flex-end; min-height: 1.9em;
     }
     .slide.is-active .slide-title { opacity: 1; transform: none; }
     .slide-cta { margin-top: 38px; opacity: 0; transform: translateY(18px); transition: .8s .3s; }
     .slide.is-active .slide-cta { opacity: 1; transform: none; }
-    .car-dots { position: absolute; left: 0; right: 0; bottom: 40px; z-index: 5; display: flex; gap: 12px; justify-content: center; }
-    .car-dots button { width: 32px; height: 3px; border: 0; padding: 0; background: rgba(255,255,255,.3); cursor: pointer; transition: background .3s; border-radius: 2px; }
-    .car-dots button.on { background: var(--accent); }
+    .car-dots { position: absolute; left: 0; right: 0; bottom: 40px; z-index: 5; display: flex; gap: 12px; justify-content: center; align-items: center; }
+    .car-dots :global(button) { width: 9px; height: 9px; border: 0; padding: 0; border-radius: 50%; background: rgba(255,255,255,.35); cursor: pointer; transition: background .3s, transform .3s; }
+    .car-dots :global(button.on) { background: var(--accent); transform: scale(1.55); }
     .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
 
     .about { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
@@ -211,36 +143,10 @@ const faq = [
     .tile.tall { grid-column: span 2; min-height: 520px; }
     .tile.third { grid-column: span 2; }
 
-    .services { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
-    .svc { border: 1px solid var(--line-soft); border-radius: 3px; padding: 34px; background: var(--surface); transition: border-color .3s, background .3s; }
-    .svc:hover { border-color: var(--line); background: var(--surface-2); }
-    .svc .num { font-size: 12px; color: var(--accent); letter-spacing: .15em; }
-    .svc h3 { font-weight: 700; font-size: 1.4rem; margin: 16px 0 10px; letter-spacing: -.01em; }
-    .svc p { color: var(--muted); font-size: 15.5px; max-width: 46ch; }
-    .svc .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
-    .svc .tags span { font-size: 11px; color: var(--muted); border: 1px solid var(--line); padding: 5px 10px; border-radius: 2px; letter-spacing: .05em; }
-
-    .faq { max-width: 860px; margin: 0 auto; }
-    .qa { border-bottom: 1px solid var(--line-soft); }
-    .qa summary { list-style: none; cursor: pointer; padding: 26px 0; display: flex; justify-content: space-between; gap: 20px; align-items: center; font-weight: 700; font-size: 1.18rem; letter-spacing: -.01em; }
-    .qa summary::-webkit-details-marker { display: none; }
-    .qa summary .plus { color: var(--accent); font-size: 24px; transition: transform .3s; flex: none; }
-    .qa[open] summary .plus { transform: rotate(45deg); }
-    .qa .a { color: var(--muted); padding: 0 0 26px; max-width: 70ch; line-height: 1.6; }
-
-    .contact { text-align: center; padding: 130px 28px; }
-    .contact h2 { font-weight: 900; font-size: clamp(2.4rem, 7vw, 5.5rem); line-height: .98; letter-spacing: -.02em; text-transform: uppercase; }
-    .contact h2 .gold { color: var(--accent); }
-    .contact p { color: var(--muted); max-width: 48ch; margin: 22px auto 36px; font-size: 1.1rem; }
-    .contact .hero-cta { justify-content: center; }
-    .contact .addr { margin-top: 40px; font-size: 12.5px; color: var(--muted); letter-spacing: .06em; }
-    .contact .addr b { color: var(--text); font-weight: 500; }
-
     @media (max-width: 900px) {
       .work { grid-template-columns: repeat(2,1fr); }
       .tile.big, .tile.tall, .tile.third { grid-column: span 2; min-height: 300px; }
       .about { grid-template-columns: 1fr; gap: 36px; }
-      .services { grid-template-columns: 1fr; }
     }
     @media (prefers-reduced-motion: reduce) {
       .tile .ph, .tile:hover .ph { transition: none; }
@@ -279,7 +185,7 @@ const faq = [
       function reset() {
         if (reduce) return;
         if (timer) clearInterval(timer);
-        timer = setInterval(next, 4000);
+        timer = setInterval(next, 3000);
       }
       const hero = document.getElementById('hero');
       hero?.addEventListener('mouseenter', () => { if (timer) clearInterval(timer); });

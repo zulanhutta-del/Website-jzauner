@@ -12,16 +12,88 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <div class="legal">
       <h1 class="title">datenschutz</h1>
       <div class="body">
-        <p><strong>Diese Seite ist ein Platzhalter.</strong> Die vollständige DSGVO-konforme Datenschutzerklärung (u.a. zu Kontaktformular/Supabase, Hosting via Vercel und ggf. Analytics) muss noch ergänzt werden, bevor die Website live geht.</p>
-        <p>Über das Kontaktformular übermittelte Daten (Name, E-Mail, Telefon, Nachricht) werden ausschließlich zur Bearbeitung der Anfrage gespeichert und nicht an Dritte weitergegeben.</p>
-        <p>Verantwortlicher: Julian Zauner, 5303 Thalgau, Salzburg, Österreich — julianzauner@icloud.com</p>
+        <h2>1. Verantwortlicher</h2>
+        <p>
+          Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br />
+          Julian Zauner<br />
+          Neu-Anspacher Straße 17, 5303 Thalgau, Österreich<br />
+          E-Mail: <a href="mailto:julianzauner@icloud.com">julianzauner@icloud.com</a>
+        </p>
+
+        <h2>2. Allgemeines</h2>
+        <p>
+          Der Schutz deiner persönlichen Daten ist mir ein wichtiges Anliegen. Diese Website
+          (www.julianzauner.at) erhebt personenbezogene Daten nur im technisch notwendigen Umfang.
+          Es findet keine aktive Sammlung von Nutzerdaten zu Werbe- oder Profilbildungszwecken statt.
+        </p>
+
+        <h2>3. Hosting</h2>
+        <p>
+          Diese Website wird bei Vercel Inc. gehostet. Beim Aufruf der Website werden durch den
+          Server automatisch Daten erfasst und in sogenannten Server-Logfiles gespeichert (z. B.
+          IP-Adresse, Datum und Uhrzeit des Zugriffs, verwendeter Browser und Betriebssystem). Diese
+          Daten dienen ausschließlich dem sicheren und stabilen Betrieb der Website (Rechtsgrundlage:
+          Art. 6 Abs. 1 lit. f DSGVO – berechtigtes Interesse). Da Vercel Inc. in den USA ansässig
+          ist, kann es dabei zu einer Datenübermittlung in ein Drittland kommen; diese erfolgt auf
+          Grundlage von EU-Standardvertragsklauseln (Art. 46 DSGVO). Details findest du in der
+          Datenschutzerklärung von Vercel:
+          <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">vercel.com/legal/privacy-policy</a>.
+        </p>
+
+        <h2>4. Kontaktformular</h2>
+        <p>
+          Wenn du das Kontaktformular auf dieser Website nutzt, werden die von dir eingegebenen
+          Daten (Vorname, Nachname, E-Mail-Adresse, optional Telefonnummer, Nachricht) in einer
+          Datenbank bei unserem Dienstleister Supabase gespeichert und ausschließlich zur Bearbeitung
+          deiner Anfrage verwendet. Eine Weitergabe an Dritte erfolgt nicht. Rechtsgrundlage ist
+          Art. 6 Abs. 1 lit. b DSGVO (Anbahnung eines Vertragsverhältnisses). Mit Supabase besteht
+          ein Auftragsverarbeitungsvertrag auf Basis von EU-Standardvertragsklauseln. Details findest
+          du in der Datenschutzerklärung von Supabase:
+          <a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer">supabase.com/privacy</a>.
+        </p>
+
+        <h2>5. Cookies</h2>
+        <p>
+          Diese Website verwendet aktuell keine Analyse- oder Marketing-Cookies. Sollte sich das
+          künftig ändern (z. B. durch datenschutzfreundliche Analytics), wird diese Erklärung
+          entsprechend aktualisiert — Details dazu findest du auf der <a href="/cookies">Cookie-Seite</a>.
+        </p>
+
+        <h2>6. Kontaktaufnahme abseits des Formulars</h2>
+        <p>
+          Wenn du mich per E-Mail oder über einen verlinkten Kanal (z. B. Instagram) kontaktierst,
+          werden die von dir übermittelten Daten (z. B. Name, E-Mail-Adresse, Nachricht)
+          ausschließlich zur Bearbeitung deiner Anfrage verwendet und nicht an Dritte weitergegeben.
+          Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO.
+        </p>
+
+        <h2>7. Deine Rechte</h2>
+        <p>
+          Du hast jederzeit das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der
+          Verarbeitung, Datenübertragbarkeit sowie Widerspruch gegen die Verarbeitung deiner
+          personenbezogenen Daten. Wende dich dafür an die oben genannte E-Mail-Adresse.
+        </p>
+
+        <h2>8. Beschwerderecht</h2>
+        <p>
+          Dir steht das Recht zu, dich bei der zuständigen Aufsichtsbehörde zu beschweren:
+          Österreichische Datenschutzbehörde, Barichgasse 40–42, 1030 Wien,
+          <a href="https://www.dsb.gv.at" target="_blank" rel="noopener noreferrer">www.dsb.gv.at</a>.
+        </p>
+
+        <p class="stand">Stand: September 2026</p>
       </div>
     </div>
   </main>
 
   <style>
-    .legal { max-width: 800px; margin: 0 auto; padding: calc(101px + 78px) 28px 90px; }
+    .legal { max-width: 800px; margin: 0 auto; padding: calc(var(--header-h) + 78px) 28px 90px; }
+    .body h2 { color: var(--text); font-size: 1.05rem; font-weight: 700; margin: 36px 0 12px; }
+    .body h2:first-child { margin-top: 0; }
     .body p { color: var(--muted); margin-bottom: 20px; line-height: 1.7; max-width: 65ch; }
     .body strong { color: var(--text); }
+    .body a { color: var(--accent); border-bottom: 1px solid transparent; transition: border-color .2s; }
+    .body a:hover { border-color: var(--accent); }
+    .body .stand { font-size: 12px; color: var(--muted-2); margin-top: 8px; }
   </style>
 </BaseLayout>

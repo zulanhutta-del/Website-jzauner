@@ -11,11 +11,9 @@ const isPhotoSection = photoSlugs.includes(current);
 <header>
   <div class="nav wrap" style="max-width:none;padding:0 40px">
     <a class="logo" href="/" aria-label="Zauner Visuals — Startseite">
-      <span>ZAUNER</span><span>VISUALS</span>
-      <span class="lg-rule"></span>
-      <span class="lg-sub"><span>PHOTO</span><span>VIDEO</span><span>DESIGN</span></span>
+      <img src="/brand/zauner-visuals-logo.png" alt="Zauner Visuals" />
     </a>
-    <nav class="links">
+    <nav class="links" id="navLinks">
       <div class="nav-item" id="fotoDrop">
         <a href="/automobil-motorsport-fotografie-salzburg" class={`drop-trigger${isPhotoSection ? " active" : ""}`} aria-haspopup="true" aria-expanded="false">Foto</a>
         <div class="dropdown" role="menu">
@@ -32,10 +30,60 @@ const isPhotoSection = photoSlugs.includes(current);
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
       </a>
     </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
 <script>
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuToggle.classList.toggle('open', open);
+      menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      document.body.classList.toggle('nav-open', open);
+    });
+    navLinks.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      if (target.tagName === 'A' && !target.closest('#fotoDrop')) {
+        navLinks.classList.remove('open');
+        menuToggle.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('nav-open');
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+        navLinks.classList.remove('open');
+        menuToggle.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('nav-open');
+      }
+    });
+  }
+
+  const headerEl = document.querySelector('header');
+  if (headerEl) {
+    let lastY = window.scrollY;
+    const threshold = 10;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (document.body.classList.contains('nav-open')) { lastY = y; return; }
+      if (Math.abs(y - lastY) < threshold) return;
+      if (y > lastY && y > 120) {
+        headerEl.classList.add('header-hidden');
+      } else {
+        headerEl.classList.remove('header-hidden');
+      }
+      lastY = y;
+    }, { passive: true });
+    if (reduceMotion) headerEl.classList.add('no-header-transition');
+  }
+
   const item = document.getElementById('fotoDrop');
   if (item) {
     const trigger = item.querySelector('.drop-trigger') as HTMLElement | null;

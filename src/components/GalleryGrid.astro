@@ -31,6 +31,9 @@ const { shots } = Astro.props;
 <style>
   .gallery { max-width: 1600px; margin: 0 auto; padding-bottom: 90px; column-count: 4; column-gap: 14px; }
   @media (max-width: 1200px) { .gallery { column-count: 3; } }
+  @media (max-width: 900px) {
+    .gallery { margin-left: calc(-1 * var(--mobile-pad)); margin-right: calc(-1 * var(--mobile-pad)); }
+  }
   @media (max-width: 820px) { .gallery { column-count: 2; } }
   @media (max-width: 520px) { .gallery { column-count: 1; } }
   .shot { position: relative; break-inside: avoid; margin-bottom: 14px; overflow: hidden; border-radius: 3px; border: 1px solid var(--line-soft); cursor: pointer; display: block; width: 100%; }
