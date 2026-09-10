@@ -198,10 +198,11 @@ const projects = [
       display: block; width: 100%; height: auto;
     }
 
-    .poster-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: end; }
+    .poster-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: end; max-width: 66%; margin-left: auto; }
     .pair-col img {
-      display: block; width: 80%; height: auto; border-radius: 2px;
+      display: block; width: 56%; height: auto; border-radius: 2px;
       box-shadow: 0 24px 60px rgba(0,0,0,.5);
+      margin-left: auto;
     }
     .pair-cap { margin-bottom: 20px; }
 
@@ -224,7 +225,8 @@ const projects = [
       .proj-cluster { min-height: 0; display: flex; flex-direction: column; gap: 16px; }
       .proj-cluster img { position: static; width: 100%; transform: none !important; }
 
-      .poster-pair { grid-template-columns: 1fr; gap: 48px; }
+      .poster-pair { grid-template-columns: 1fr; gap: 48px; max-width: 100%; margin-left: 0; }
+      .pair-col img { width: 100%; margin-left: 0; }
     }
   </style>
 
