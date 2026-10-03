@@ -83,6 +83,7 @@ export const automotiveGallery: Shot[] = [
 ];
 
 export const motorsportGallery: Shot[] = [
+  { src: "/images/cars/motorsport/02.jpg", alt: "Porsche 911 GT3 Cup im Panning-Shot auf der Rennstrecke", cap: "GT3 Cup · Panning" },
   { src: "/images/cars/motorsport/cars-04-porsche-911-track.jpg", alt: "Porsche 911 auf der Rennstrecke", cap: "Porsche 911 · Strecke" },
   { src: "/images/cars/motorsport/01.jpg", alt: "BMW E30 mit Startnummer 374 im Panning-Shot auf der Rennstrecke", cap: "BMW E30 · Panning" },
   { src: "/images/cars/motorsport/_MG_2493.jpg", alt: "Roter Porsche 911 GT3 in voller Fahrt auf der Rennstrecke", cap: "Porsche GT3 · Strecke" },
@@ -98,7 +99,6 @@ export const motorsportGallery: Shot[] = [
   { src: "/images/cars/motorsport/_MG_2498.jpg", alt: "Dunkelgrüner Porsche 911 GT3 RS mit roten Felgen auf der Rennstrecke", cap: "GT3 RS · Grün" },
   { src: "/images/cars/motorsport/_MG_7469.jpg", alt: "Orangefarbener Porsche Cayman GT4 und schwarzer Prototyp auf der Rennstrecke", cap: "Cayman GT4 · Duell" },
   { src: "/images/cars/motorsport/_MG_7276.jpg", alt: "Rennmotorrad im Camel-Design auf der Rennstrecke", cap: "Rennmotorrad · Camel" },
-  { src: "/images/cars/motorsport/02.jpg", alt: "Porsche 911 GT3 Cup im Panning-Shot auf der Rennstrecke", cap: "GT3 Cup · Panning" },
   { src: "/images/cars/motorsport/_MG_1508.jpg", alt: "Zwei BMW E30 Driftautos im Doppel-Drift vor Publikum", cap: "Doppel-Drift" },
   { src: "/images/cars/motorsport/_MG_4960.jpg", alt: "Roter Rennwagen mit Startnummer 15 auf der Rennstrecke", cap: "Rennwagen · Nr. 15" },
   { src: "/images/cars/motorsport/_MG_7424.jpg", alt: "Weißer Dodge Viper GTS-R und oranger Porsche Cayman GT4 in der Kurve", cap: "Viper & Cayman · Kurve" },
