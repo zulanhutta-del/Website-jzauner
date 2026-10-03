@@ -39,4 +39,12 @@ const crumbs = breadcrumbJsonLd([
     .gallery-head { max-width: 1600px; margin: 0 auto; padding: 10px 0 24px; scroll-margin-top: calc(var(--header-h) + 20px); }
     .gallery-head h2 { font-weight: 700; font-size: clamp(1.5rem, 2.6vw, 2rem); letter-spacing: -.01em; text-transform: lowercase; }
   </style>
+  <script>
+    const id = location.hash.slice(1);
+    if (id) {
+      const go = () => document.getElementById(id)?.scrollIntoView({ block: "start" });
+      window.addEventListener("load", go);
+      setTimeout(go, 800);
+    }
+  </script>
 </BaseLayout>
