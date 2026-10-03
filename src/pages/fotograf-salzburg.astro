@@ -1,25 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { faqJsonLd, breadcrumbJsonLd } from "../data/business";
-
-const faq = [
-  {
-    q: "Wer ist Julian Zauner?",
-    a: "Julian Zauner ist Fotograf, Videograf und Designer aus Thalgau bei Salzburg. Ausgebildet an der HTL Salzburg in Grafik- & Mediendesign, deckt er Automobil- & Motorsportfotografie, Wildlife, Landschaft, kreatives Composing sowie Video und Grafikdesign ab.",
-  },
-  {
-    q: "Welche Orte in Salzburg deckst du ab?",
-    a: "Standort ist Thalgau, Shootings finden im ganzen Salzburger Land statt — Stadt Salzburg, Flachgau, Tennengau und die umliegenden Alpenregionen. Für Renntage und Projekte auch überregional in Österreich.",
-  },
-  {
-    q: "Wie unterscheidest du dich von anderen Fotografen in Salzburg?",
-    a: "Die Kombination aus Fotografie, Video und Grafikdesign aus einer Hand: Bilder werden nicht nur aufgenommen, sondern bis zur fertigen Bildsprache und ins Branding weitergedacht — inklusive dem Einsatz aktueller KI-Tools in der Postproduktion.",
-  },
-  {
-    q: "Wie läuft eine Anfrage ab?",
-    a: "Kurz über das Kontaktformular oder per E-Mail an julianzauner@icloud.com melden, Projekt und Wunschtermin beschreiben. Rückmeldung und weitere Details werden individuell abgestimmt.",
-  },
-];
+import { breadcrumbJsonLd } from "../data/business";
 
 const crumbs = breadcrumbJsonLd([
   { name: "Startseite", path: "/" },
@@ -32,7 +13,7 @@ const crumbs = breadcrumbJsonLd([
   description="Dein Fotograf in Salzburg für Automobil, Motorsport, Wildlife & Landschaft. Foto, Video und Design aus einer Hand. Jetzt unverbindlich anfragen."
   path="/fotograf-salzburg"
   current=""
-  jsonLd={[faqJsonLd(faq), crumbs]}
+  jsonLd={[crumbs]}
 >
   <main class="page">
     <div class="head">
@@ -40,28 +21,8 @@ const crumbs = breadcrumbJsonLd([
       <h1 class="title">fotograf salzburg</h1>
       <p class="intro">Foto, Video und Design aus Salzburg — Automobil, Motorsport, Wildlife, Landschaft und Kreativ.</p>
     </div>
-
-    <div class="faq-wrap">
-      <h2>Häufige Fragen</h2>
-      <div class="faq">
-        {faq.map((item) => (
-          <details class="qa">
-            <summary>{item.q}<span class="plus">+</span></summary>
-            <div class="a">{item.a}</div>
-          </details>
-        ))}
-      </div>
-    </div>
   </main>
 
   <style>
-    .faq-wrap { max-width: 900px; margin: 0 auto; padding: 20px 0 100px; }
-    .faq-wrap h2 { font-weight: 700; font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 20px; letter-spacing: -.01em; }
-    .qa { border-bottom: 1px solid var(--line-soft); }
-    .qa summary { list-style: none; cursor: pointer; padding: 22px 0; display: flex; justify-content: space-between; gap: 20px; align-items: center; font-weight: 700; font-size: 1.05rem; }
-    .qa summary::-webkit-details-marker { display: none; }
-    .qa summary .plus { color: var(--accent); font-size: 22px; transition: transform .3s; flex: none; }
-    .qa[open] summary .plus { transform: rotate(45deg); }
-    .qa .a { color: var(--muted); padding: 0 0 22px; max-width: 70ch; line-height: 1.6; }
   </style>
 </BaseLayout>

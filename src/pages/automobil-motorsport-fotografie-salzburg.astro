@@ -2,34 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import GalleryGrid from "../components/GalleryGrid.astro";
 import { automotiveGallery, motorsportGallery } from "../data/galleries";
-import { faqJsonLd, breadcrumbJsonLd } from "../data/business";
-
-const faq = [
-  {
-    q: "Was kostet ein Auto-Shooting in Salzburg?",
-    a: "Der Preis hängt vom Umfang ab: Anzahl der Fahrzeuge, Location, Dauer und ob Rolling Shots oder Video dazukommen. Am besten kurz Projekt und Wunschtermin über das Kontaktformular schicken — dann gibt es ein passendes Angebot.",
-  },
-  {
-    q: "Wie läuft ein Auto-Shooting ab?",
-    a: "Nach Anfrage werden Location, Termin und gewünschter Stil (Street, Studio, Rolling Shot, Detailaufnahmen) gemeinsam abgestimmt. Am Shooting-Tag folgen Aufnahme und kurze Bildauswahl, danach die Bearbeitung der finalen Fotos.",
-  },
-  {
-    q: "Fotografierst du auch bei Renntagen und Trackdays?",
-    a: "Ja. Motorsport-Coverage auf der Strecke gehört zum Kernbereich — Action-Aufnahmen im Rennen, Boxengasse und Fahrerlager, nutzbar für Fahrer, Teams und Sponsoren.",
-  },
-  {
-    q: "Wie schnell bekomme ich meine Bilder?",
-    a: "Die Bearbeitungszeit richtet sich nach Umfang des Shootings. Ein grober Zeitrahmen wird bei der Anfrage mitgeteilt, damit klar ist, wann die fertigen Bilder ankommen.",
-  },
-  {
-    q: "Fotografierst du auch außerhalb von Salzburg?",
-    a: "Basis ist Thalgau bei Salzburg, Shootings im Salzburger Land sind Standard. Für Renntage, Events oder besondere Projekte ist auch überregionale Anreise in Österreich möglich — einfach anfragen.",
-  },
-  {
-    q: "Kann ich eigene Wunschlocations vorschlagen?",
-    a: "Klar. Ob Bergstraße, Showroom, Industrie-Kulisse oder eine bestimmte Rennstrecke — Locations werden gerne gemeinsam besprochen und wenn nötig auch neue gescoutet.",
-  },
-];
+import { breadcrumbJsonLd } from "../data/business";
 
 const crumbs = breadcrumbJsonLd([
   { name: "Startseite", path: "/" },
@@ -42,7 +15,7 @@ const crumbs = breadcrumbJsonLd([
   description="Automobil- und Motorsportfotografie in Salzburg: cinematische Car-Shootings, Rolling Shots, Detailaufnahmen und Renntag-Coverage. Jetzt Projekt anfragen."
   path="/automobil-motorsport-fotografie-salzburg"
   current="automobil-motorsport-fotografie-salzburg"
-  jsonLd={[faqJsonLd(faq), crumbs]}
+  jsonLd={[crumbs]}
 >
   <main class="page">
     <div class="head">
@@ -60,31 +33,10 @@ const crumbs = breadcrumbJsonLd([
       <h2>Motorsportfotografie</h2>
     </div>
     <GalleryGrid shots={motorsportGallery} />
-
-    <div class="faq-wrap">
-      <h2>Häufige Fragen zu Auto- &amp; Motorsportfotografie</h2>
-      <div class="faq">
-        {faq.map((item) => (
-          <details class="qa">
-            <summary>{item.q}<span class="plus">+</span></summary>
-            <div class="a">{item.a}</div>
-          </details>
-        ))}
-      </div>
-    </div>
   </main>
 
   <style>
     .gallery-head { max-width: 1600px; margin: 0 auto; padding: 10px 0 24px; scroll-margin-top: calc(var(--header-h) + 20px); }
     .gallery-head h2 { font-weight: 700; font-size: clamp(1.5rem, 2.6vw, 2rem); letter-spacing: -.01em; text-transform: lowercase; }
-    .faq-wrap { max-width: 900px; margin: 0 auto; padding: 20px 0 100px; }
-    .faq-wrap h2 { font-weight: 700; font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 20px; letter-spacing: -.01em; }
-    .faq { }
-    .qa { border-bottom: 1px solid var(--line-soft); }
-    .qa summary { list-style: none; cursor: pointer; padding: 22px 0; display: flex; justify-content: space-between; gap: 20px; align-items: center; font-weight: 700; font-size: 1.05rem; }
-    .qa summary::-webkit-details-marker { display: none; }
-    .qa summary .plus { color: var(--accent); font-size: 22px; transition: transform .3s; flex: none; }
-    .qa[open] summary .plus { transform: rotate(45deg); }
-    .qa .a { color: var(--muted); padding: 0 0 22px; max-width: 70ch; line-height: 1.6; }
   </style>
 </BaseLayout>
