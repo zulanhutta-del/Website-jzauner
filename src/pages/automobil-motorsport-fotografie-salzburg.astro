@@ -56,7 +56,7 @@ const crumbs = breadcrumbJsonLd([
     </div>
     <GalleryGrid shots={automotiveGallery} />
 
-    <div class="gallery-head">
+    <div class="gallery-head" id="motorsport">
       <h2>Motorsportfotografie</h2>
     </div>
     <GalleryGrid shots={motorsportGallery} />
@@ -75,7 +75,7 @@ const crumbs = breadcrumbJsonLd([
   </main>
 
   <style>
-    .gallery-head { max-width: 1600px; margin: 0 auto; padding: 10px 0 24px; }
+    .gallery-head { max-width: 1600px; margin: 0 auto; padding: 10px 0 24px; scroll-margin-top: calc(var(--header-h) + 20px); }
     .gallery-head h2 { font-weight: 700; font-size: clamp(1.5rem, 2.6vw, 2rem); letter-spacing: -.01em; text-transform: lowercase; }
     .faq-wrap { max-width: 900px; margin: 0 auto; padding: 20px 0 100px; }
     .faq-wrap h2 { font-weight: 700; font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 20px; letter-spacing: -.01em; }
