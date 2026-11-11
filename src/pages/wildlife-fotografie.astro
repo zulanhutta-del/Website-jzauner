@@ -2,12 +2,21 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import GalleryGrid from "../components/GalleryGrid.astro";
 import { wildlifeGallery } from "../data/galleries";
-import { breadcrumbJsonLd } from "../data/business";
+import { breadcrumbJsonLd, serviceJsonLd, galleryImagesJsonLd } from "../data/business";
 
+const path = "/wildlife-fotografie";
 const crumbs = breadcrumbJsonLd([
   { name: "Startseite", path: "/" },
-  { name: "Wildlife-Fotografie", path: "/wildlife-fotografie" },
+  { name: "Wildlife-Fotografie", path },
 ]);
+const service = serviceJsonLd({
+  name: "Wildlife- & Tierfotografie Salzburg",
+  serviceType: "Wildlife-Fotografie",
+  description:
+    "Wildlife- und Tierfotografie aus Salzburg: Vögel, Insekten und Wildtiere in Nah- und Makroaufnahmen, mit Geduld und Blick fürs Detail von Julian Zauner.",
+  path,
+});
+const images = galleryImagesJsonLd(wildlifeGallery, path);
 ---
 
 <BaseLayout
@@ -15,7 +24,7 @@ const crumbs = breadcrumbJsonLd([
   description="Wildlife- und Tierfotografie aus Salzburg: Vögel, Insekten und Wildtiere in Makro- und Naturaufnahmen von Julian Zauner."
   path="/wildlife-fotografie"
   current="wildlife-fotografie"
-  jsonLd={[crumbs]}
+  jsonLd={[crumbs, service, images]}
 >
   <main class="page">
     <div class="head">

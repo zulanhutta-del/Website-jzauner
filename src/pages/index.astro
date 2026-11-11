@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { heroSlides } from "../data/galleries";
+import { websiteJsonLd, personJsonLd } from "../data/business";
 ---
 
 <BaseLayout
@@ -8,6 +9,7 @@ import { heroSlides } from "../data/galleries";
   description="Julian Zauner: Fotograf & Videograf aus Salzburg, spezialisiert auf Automobil- und Motorsportfotografie. Cinematische Bilder, jetzt Projekt anfragen."
   path="/"
   current=""
+  jsonLd={[websiteJsonLd, personJsonLd]}
 >
   <main id="top">
     <!-- HERO CAROUSEL -->

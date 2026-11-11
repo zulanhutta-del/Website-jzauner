@@ -2,12 +2,21 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import GalleryGrid from "../components/GalleryGrid.astro";
 import { landscapeGallery } from "../data/galleries";
-import { breadcrumbJsonLd } from "../data/business";
+import { breadcrumbJsonLd, serviceJsonLd, galleryImagesJsonLd } from "../data/business";
 
+const path = "/landschaftsfotografie-salzburg";
 const crumbs = breadcrumbJsonLd([
   { name: "Startseite", path: "/" },
-  { name: "Landschaftsfotografie Salzburg", path: "/landschaftsfotografie-salzburg" },
+  { name: "Landschaftsfotografie Salzburg", path },
 ]);
+const service = serviceJsonLd({
+  name: "Landschaftsfotografie Salzburg & Alpen",
+  serviceType: "Landschaftsfotografie",
+  description:
+    "Landschafts- und Naturfotografie in Salzburg, den Alpen und auf Reisen: Bergpanoramen, Sonnenuntergänge, Küsten- und Drohnenaufnahmen von Julian Zauner.",
+  path,
+});
+const images = galleryImagesJsonLd(landscapeGallery, path);
 ---
 
 <BaseLayout
@@ -15,7 +24,7 @@ const crumbs = breadcrumbJsonLd([
   description="Landschaftsfotografie in Salzburg und den Alpen: Berge, Küsten und Naturstimmungen von Julian Zauner, Fotograf aus Thalgau/Salzburg."
   path="/landschaftsfotografie-salzburg"
   current="landschaftsfotografie-salzburg"
-  jsonLd={[crumbs]}
+  jsonLd={[crumbs, service, images]}
 >
   <main class="page">
     <div class="head">

@@ -1,11 +1,19 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { breadcrumbJsonLd } from "../data/business";
+import { breadcrumbJsonLd, serviceJsonLd } from "../data/business";
 
+const path = "/fotograf-salzburg";
 const crumbs = breadcrumbJsonLd([
   { name: "Startseite", path: "/" },
-  { name: "Fotograf Salzburg", path: "/fotograf-salzburg" },
+  { name: "Fotograf Salzburg", path },
 ]);
+const service = serviceJsonLd({
+  name: "Fotograf Salzburg – Foto, Video & Design",
+  serviceType: "Fotografie, Videografie & Grafikdesign",
+  description:
+    "Julian Zauner ist Fotograf, Videograf und Designer aus Salzburg (Thalgau). Foto, Video und Design aus einer Hand – mit Schwerpunkt Automobil- und Motorsportfotografie, dazu Wildlife, Landschaft, Kreativ und Branding, für Kunden in Salzburg und ganz Österreich.",
+  path,
+});
 ---
 
 <BaseLayout
@@ -13,7 +21,7 @@ const crumbs = breadcrumbJsonLd([
   description="Dein Fotograf in Salzburg für Automobil, Motorsport, Wildlife & Landschaft. Foto, Video und Design aus einer Hand. Jetzt unverbindlich anfragen."
   path="/fotograf-salzburg"
   current=""
-  jsonLd={[crumbs]}
+  jsonLd={[crumbs, service]}
 >
   <main class="page">
     <div class="head">

@@ -1,19 +1,39 @@
+# julianzauner.at — Zauner Visuals
+# Alle Crawler erlaubt (Fotograf/Designer – Sichtbarkeit erwünscht).
+
 User-agent: *
 Allow: /
 
-User-agent: GPTBot
+# --- KI-SUCH-Crawler (entscheiden über Zitate in KI-Antworten) ---
+User-agent: OAI-SearchBot
 Allow: /
 
-User-agent: Google-Extended
+User-agent: Claude-SearchBot
 Allow: /
 
 User-agent: PerplexityBot
 Allow: /
 
+User-agent: Applebot
+Allow: /
+
+# --- KI-Training-/Grounding-Crawler (optional, hier bewusst erlaubt) ---
+User-agent: GPTBot
+Allow: /
+
 User-agent: ClaudeBot
 Allow: /
 
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
 User-agent: CCBot
+Allow: /
+
+User-agent: PerplexityBot-User
 Allow: /
 
 Sitemap: https://www.julianzauner.at/sitemap-index.xml

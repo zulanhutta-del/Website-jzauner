@@ -2,12 +2,21 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import GalleryGrid from "../components/GalleryGrid.astro";
 import { creativeGallery } from "../data/galleries";
-import { breadcrumbJsonLd } from "../data/business";
+import { breadcrumbJsonLd, serviceJsonLd, galleryImagesJsonLd } from "../data/business";
 
+const path = "/kreativ";
 const crumbs = breadcrumbJsonLd([
   { name: "Startseite", path: "/" },
-  { name: "Kreativ", path: "/kreativ" },
+  { name: "Kreativ", path },
 ]);
+const service = serviceJsonLd({
+  name: "Kreativ- & Composing-Fotografie Salzburg",
+  serviceType: "Kreativfotografie",
+  description:
+    "Kreative Fotografie und Composing aus Salzburg: Studio-Porträts, Lightpainting, Sport- und Experimentalaufnahmen jenseits des klassischen Shootings.",
+  path,
+});
+const images = galleryImagesJsonLd(creativeGallery, path);
 ---
 
 <BaseLayout
@@ -15,7 +24,7 @@ const crumbs = breadcrumbJsonLd([
   description="Kreative Fotografie und Composing aus Salzburg: Studio-Porträts, Lightpainting und Experimente jenseits des klassischen Shootings."
   path="/kreativ"
   current="kreativ"
-  jsonLd={[crumbs]}
+  jsonLd={[crumbs, service, images]}
 >
   <main class="page">
     <div class="head">

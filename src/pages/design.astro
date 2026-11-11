@@ -1,11 +1,18 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { breadcrumbJsonLd } from "../data/business";
+import { breadcrumbJsonLd, serviceJsonLd } from "../data/business";
 
 const crumbs = breadcrumbJsonLd([
   { name: "Startseite", path: "/" },
   { name: "Grafikdesign", path: "/design" },
 ]);
+const service = serviceJsonLd({
+  name: "Grafikdesign & Branding Salzburg",
+  serviceType: "Grafikdesign",
+  description:
+    "Grafikdesign aus Salzburg: Corporate Design, Branding, Editorial- und Posterdesign von Julian Zauner – u. a. Ferrari-Aesthetics-Poster, Corporate Design und Editorial-Arbeiten.",
+  path: "/design",
+});
 
 const posterPair = [
   {
@@ -101,7 +108,7 @@ const projects = [
   description="Grafikdesign aus Salzburg: Branding, Editorial und Posterdesign von Julian Zauner — u.a. Ferrari-Poster, Corporate Design und Editorial für ein Surf-Magazin."
   path="/design"
   current="design"
-  jsonLd={[crumbs]}
+  jsonLd={[crumbs, service]}
 >
   <main class="page">
     <div class="head">
