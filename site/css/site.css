@@ -275,7 +275,7 @@ html { scrollbar-color: #2a3040 var(--c-bg); }
   .works { grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--s-5) var(--s-4); }
   .work:nth-child(1) { grid-column: 1 / span 5; }
   .work:nth-child(2) { grid-column: 7 / span 6; margin-top: 18vh; }
-  .work:nth-child(3) { grid-column: 1 / span 5; }
+  .work:nth-child(3) { grid-column: 2 / span 4; }
   .work:nth-child(4) { grid-column: 7 / span 5; margin-top: 8vh; }
 }
 
