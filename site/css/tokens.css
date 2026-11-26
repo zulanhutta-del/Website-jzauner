@@ -1,0 +1,45 @@
+/* Julian Zauner · Tokens
+   Grund: Dämmerungsblau aus den Hero-Fotos. Einziger Akzent: Julians Weinrot #6C0002. */
+:root {
+  /* Flächen */
+  --c-bg: #07080c;
+  --c-bg-2: #0c0f16;
+  --c-bg-3: #131824;
+  --c-line: rgba(236, 234, 230, .12);
+  --c-line-2: rgba(236, 234, 230, .22);
+
+  /* Text */
+  --c-ink: #eceae6;
+  --c-ink-2: #aab1bf;
+  --c-ink-3: #7c8597;
+
+  /* Akzent: Julians Markenfarbe Weinrot (aus der Bewerbung, RGB 108/0/2) + Stufen derselben Familie für dunklen Grund */
+  --c-brand: #6C0002;   /* Marke: Flächen, Punkt auf hellem Grund (10,7:1 auf #eceae6) */
+  --c-rec: #8A0A12;     /* Punkt hinter den Riesenwörtern auf dunkel, Flächen auf dunkel */
+  --c-rec-ui: #C21A24;  /* Fokusringe, aktive Balken, Icons auf dunkel (3,3:1) */
+  --c-rec-2: #D9474F;   /* Text auf dunkel: Fehlermeldungen, Hover-Text (4,7:1) */
+
+  /* Schrift */
+  --f-display: "Anton", "Impact", "Arial Narrow", sans-serif;
+  --f-text: "Helvetica Neue", Helvetica, "Inter", Arial, sans-serif; /* Helvetica Neue nicht selbst gehostet (Lizenz), Inter als freier Ersatz */
+
+  --t-xs: .75rem;      /* 12 Etiketten */
+  --t-s: .875rem;      /* 14 */
+  --t-m: 1.0625rem;    /* 17 Fließtext */
+  --t-l: clamp(1.25rem, 1.05rem + .8vw, 1.625rem);
+  --t-xl: clamp(2rem, 1.3rem + 3vw, 3.75rem);
+  --t-xxl: clamp(2.75rem, 1.2rem + 6.4vw, 7.5rem);
+
+  /* Abstände (8er-Raster) */
+  --s-1: 8px; --s-2: 16px; --s-3: 24px; --s-4: 32px; --s-5: 48px; --s-6: 64px; --s-7: 96px; --s-8: 128px;
+  --m: clamp(20px, 4.6vw, 80px);              /* Seitenrand */
+  --sec: clamp(88px, 11vw, 168px);           /* Abschnittsabstand */
+  --header-h: 72px;
+
+  /* Formen */
+  --r-s: 10px; --r-m: 18px; --r-pill: 999px;
+
+  /* Bewegung */
+  --e-out: cubic-bezier(.16, 1, .3, 1);
+  --e-shutter: cubic-bezier(.76, 0, .24, 1);
+}
