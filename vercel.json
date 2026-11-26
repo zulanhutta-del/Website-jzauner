@@ -1,0 +1,159 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/fotograf-salzburg",
+      "destination": "/fotograf-salzburg.html",
+      "permanent": true
+    },
+    {
+      "source": "/automobil-motorsport-fotografie-salzburg",
+      "destination": "/fotograf-salzburg.html#auto",
+      "permanent": true
+    },
+    {
+      "source": "/landschaftsfotografie-salzburg",
+      "destination": "/fotograf-salzburg.html#landschaft",
+      "permanent": true
+    },
+    {
+      "source": "/wildlife-fotografie",
+      "destination": "/fotograf-salzburg.html#wildlife",
+      "permanent": true
+    },
+    {
+      "source": "/kreativ",
+      "destination": "/fotograf-salzburg.html#kreativ",
+      "permanent": true
+    },
+    {
+      "source": "/galerie",
+      "destination": "/fotograf-salzburg.html",
+      "permanent": true
+    },
+    {
+      "source": "/galerie/:path*",
+      "destination": "/fotograf-salzburg.html",
+      "permanent": true
+    },
+    {
+      "source": "/design",
+      "destination": "/design.html",
+      "permanent": true
+    },
+    {
+      "source": "/ueber-mich",
+      "destination": "/ueber-mich.html",
+      "permanent": true
+    },
+    {
+      "source": "/kontakt",
+      "destination": "/#anfrage",
+      "permanent": true
+    },
+    {
+      "source": "/impressum",
+      "destination": "/impressum.html",
+      "permanent": true
+    },
+    {
+      "source": "/datenschutz",
+      "destination": "/datenschutz.html",
+      "permanent": true
+    },
+    {
+      "source": "/cookies",
+      "destination": "/datenschutz.html",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/en/index.html",
+      "destination": "/en",
+      "permanent": true
+    },
+    {
+      "source": "/sitemap-index.xml",
+      "destination": "/sitemap.xml",
+      "permanent": true
+    },
+    {
+      "source": "/sitemap-0.xml",
+      "destination": "/sitemap.xml",
+      "permanent": true
+    },
+    {
+      "source": "/og-image.jpg",
+      "destination": "/assets/bilder/fmx-sprung-daemmerung-1600.webp",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self'; manifest-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://wa.me mailto:; upgrade-insecure-requests"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        }
+      ]
+    },
+    {
+      "source": "/assets/fonts/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(bilder|ki|video)/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000"
+        }
+      ]
+    },
+    {
+      "source": "/(css|js)/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, must-revalidate"
+        }
+      ]
+    }
+  ],
+  "framework": null,
+  "installCommand": "echo skip",
+  "buildCommand": "echo static",
+  "outputDirectory": "site"
+}
