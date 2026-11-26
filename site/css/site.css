@@ -369,6 +369,7 @@ html { scrollbar-color: #2a3040 var(--c-bg); }
 .foot a:hover { color: var(--c-ink); }
 .foot address { font-style: normal; }
 .foot__base { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-top: var(--s-6); padding-top: var(--s-3); border-top: 1px solid var(--c-line); color: var(--c-ink-3); }
+@media (max-width: 1023px) { .foot__grid > :first-child { grid-column: 1 / -1; } }
 @media (min-width: 1024px) { .foot__grid { grid-template-columns: 2fr 1fr 1fr 1fr; } }
 
 /* Daumenleiste (Handy) */
