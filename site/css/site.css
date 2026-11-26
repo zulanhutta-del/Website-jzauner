@@ -180,12 +180,16 @@ html { scrollbar-color: #2a3040 var(--c-bg); }
   .hero__meta { padding: 66px 14px 0; }
   .tabs { position: absolute; top: 0; left: 0; right: 0; grid-template-columns: repeat(3, 1fr) 44px; }
   .tab { padding: 0 0 12px; gap: 8px; font-size: 12.5px; min-height: 44px; align-content: start; white-space: nowrap; }
-  .board__stage { left: var(--m); right: var(--m); width: auto; top: calc(var(--header-h) + 128px); height: 290px; }
+  .board__stage { left: var(--m); right: var(--m); width: auto; top: calc(var(--header-h) + 92px); height: clamp(170px, calc(100svh - var(--header-h) - 92px - 440px), 290px); }
   .poster figcaption { display: none; }
   .tab__label { order: 2; }
   .tab__bar { order: 1; }
   .hero__ui { inset-block-start: calc(var(--header-h) + 6px); }
-  .hero__ctas .btn { flex: 1 1 auto; justify-content: center; }
+  .hero__ui { inset-block-end: 60px; }
+  .hero__lead { font-size: .9375rem; margin-top: 8px; }
+  .hero__ctas { flex-wrap: nowrap; gap: 8px; margin-top: 16px; }
+  .hero__ctas .btn { --h: 44px; flex: 1 1 0; min-width: 0; justify-content: center; padding: 0 12px; gap: 8px; font-size: .875rem; }
+  .hero__ctas .btn:only-child { flex: 0 1 calc(50% - 4px); }
 }
 @media (min-width: 760px) {
   .hero__geo { display: block; }
