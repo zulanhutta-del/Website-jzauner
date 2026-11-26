@@ -263,11 +263,11 @@ html { scrollbar-color: #2a3040 var(--c-bg); }
 
 /* Design */
 .works { display: grid; gap: var(--s-5) var(--s-3); grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.work { display: grid; gap: 14px; align-content: start; }
+.work { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; align-content: start; }
 .work__img { border-radius: var(--r-s); overflow: hidden; background: var(--c-bg-3); display: block; }
 .work__img img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--e-out); }
 .work:hover .work__img img { transform: scale(1.03); }
-.work__meta { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; border-top: 1px solid var(--c-line); padding-top: 12px; }
+.work__meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; align-items: baseline; border-top: 1px solid var(--c-line); padding-top: 12px; }
 .work__meta h3 { font-size: 1rem; font-weight: 700; }
 .work__meta span { color: var(--c-ink-3); }
 .work--wide { grid-column: 1 / -1; }
