@@ -148,7 +148,7 @@ html { scrollbar-color: #2a3040 var(--c-bg); }
 .hero__lead { color: rgba(255, 255, 255, .78); max-width: 42ch; margin-top: 10px; font-size: 1rem; }
 .hero__ctas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
 .hero__ctas .btn--line { background: rgba(7, 8, 12, .5); border-color: rgba(255, 255, 255, .42); }
-.tabs { display: grid; grid-template-columns: repeat(3, 1fr) auto; gap: 10px; align-items: end; }
+.tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; align-items: end; }
 .tab { all: unset; cursor: pointer; display: grid; gap: 8px; padding: 12px 0 10px; color: rgba(255, 255, 255, .55); font: 400 .8125rem/1.2 var(--f-text); transition: color .3s; min-height: 24px; }
 .tab:focus-visible { outline: 2px solid var(--c-rec-ui); outline-offset: 2px; }
 .tab:hover, .tab[aria-selected="true"] { color: #fff; }
@@ -178,7 +178,7 @@ html { scrollbar-color: #2a3040 var(--c-bg); }
 @media (max-width: 759px) {
   .hero { min-height: 600px; }
   .hero__meta { padding: 66px 14px 0; }
-  .tabs { position: absolute; top: 0; left: 0; right: 0; grid-template-columns: repeat(3, 1fr) 44px; }
+  .tabs { position: absolute; top: 0; left: 0; right: 0; grid-template-columns: repeat(3, 1fr); }
   .tab { padding: 0 0 12px; gap: 8px; font-size: 12.5px; min-height: 44px; align-content: start; white-space: nowrap; }
   .board__stage { left: var(--m); right: var(--m); width: auto; top: calc(var(--header-h) + 92px); height: clamp(170px, calc(100svh - var(--header-h) - 92px - 380px), 320px); }
   .poster figcaption { display: none; }
