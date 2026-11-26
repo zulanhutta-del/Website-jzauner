@@ -387,8 +387,8 @@ html { scrollbar-color: #2a3040 var(--c-bg); }
 @media (min-width: 1024px) { .foot__grid { grid-template-columns: 2fr 1fr 1fr 1fr; } }
 
 /* Daumenleiste (Handy) */
-.thumb { position: fixed; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); z-index: 40; display: grid; grid-template-columns: 1fr auto; gap: 8px; padding: 6px; border-radius: var(--r-pill); background: var(--c-bg-2); border: 1px solid var(--c-line); transform: translateY(140%); transition: transform .5s var(--e-out); }
-.thumb.on { transform: none; }
+.thumb { position: fixed; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); z-index: 40; display: grid; grid-template-columns: 1fr auto; gap: 8px; padding: 6px; border-radius: var(--r-pill); background: var(--c-bg-2); border: 1px solid var(--c-line); transform: translateY(calc(100% + 140px)); opacity: 0; visibility: hidden; pointer-events: none; transition: transform .5s var(--e-out), opacity .4s, visibility 0s .5s; }
+.thumb.on { transform: none; opacity: 1; visibility: visible; pointer-events: auto; transition: transform .5s var(--e-out), opacity .3s, visibility 0s; }
 .thumb .btn { justify-content: center; --h: 48px; }
 .thumb .btn--line { padding: 0 16px; }
 @media (min-width: 1024px) { .thumb { display: none; } }

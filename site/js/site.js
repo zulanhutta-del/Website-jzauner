@@ -255,7 +255,7 @@
   if (thumb) {
     let past = false, atAsk = false;
     const upd = () => thumb.classList.toggle("on", past && !atAsk && !root.classList.contains("menu-open"));
-    addEventListener("scroll", () => { past = scrollY > innerHeight * .6; upd(); }, { passive: true });
+    addEventListener("scroll", () => { past = scrollY > innerHeight * 2.2; upd(); }, { passive: true });
     if (ask && "IntersectionObserver" in window) new IntersectionObserver((es) => es.forEach((e) => { atAsk = e.isIntersecting; upd(); }), { rootMargin: "0px 0px -20% 0px" }).observe(ask);
   }
 
