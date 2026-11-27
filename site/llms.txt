@@ -11,7 +11,7 @@
 - [Startseite](https://www.julianzauner.at/): Fotografie, Design, Kontakt
 - [Fotograf Salzburg](https://www.julianzauner.at/fotograf-salzburg.html): Galerie nach Bereichen (Porträt, Events, Sport, Auto & Motorsport, Landschaft, Wildlife, Kreativ)
 - [Grafikdesign](https://www.julianzauner.at/design.html): Plakate, Editorial, Corporate Design, Verpackung, Logos
-- [KI-Tools](https://www.julianzauner.at/ki-tools.html): selbst gebaute Werkzeuge für den eigenen Alltag (LocScouter, Website-Agent, Auftragspilot), keine Dienstleistung
+- [KI-Tools](https://www.julianzauner.at/ki-tools.html): selbst gebaute Werkzeuge für den eigenen Alltag (LocScouter, Website-Agent, Studioe), keine Dienstleistung
 - [Über mich](https://www.julianzauner.at/ueber-mich.html): Kurzbiografie, Ausbildung HTL Salzburg
 - [English](https://www.julianzauner.at/en): englische Startseite, dazu [Photography](https://www.julianzauner.at/en/photography.html), [Design](https://www.julianzauner.at/en/design.html), [AI tools](https://www.julianzauner.at/en/ai-tools.html) und [About](https://www.julianzauner.at/en/about.html)
 - [Impressum](https://www.julianzauner.at/impressum.html)
