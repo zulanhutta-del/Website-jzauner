@@ -506,3 +506,12 @@ html { scrollbar-color: #2a3040 var(--c-bg); }
   .hero__slide--ai .hero__media picture { height: 76%; -webkit-mask-image: linear-gradient(to bottom, #000 62%, transparent); mask-image: linear-gradient(to bottom, #000 62%, transparent); }
   .hero__slide--ai .hero__media img { object-position: 86% 50%; }
 }
+
+/* Kontakt-Hinweisseite (schwarz, zentriert) und angeglichener Kontaktbereich unten */
+.kontakt { background: #000; min-height: 100svh; display: grid; align-items: center; }
+.kontakt__in { max-width: 760px; padding-block: calc(var(--header-h) + clamp(64px, 14vh, 160px)) clamp(56px, 12vh, 120px); }
+.kontakt__label { color: var(--c-ink-3); margin-bottom: var(--s-4); }
+.kontakt__h { font: 400 var(--t-xxl)/1 var(--f-display); text-transform: uppercase; letter-spacing: .012em; }
+.kontakt__lead { margin-top: var(--s-5); max-width: 56ch; font-size: var(--t-l); line-height: 1.5; color: var(--c-ink-2); }
+.kontakt__act { margin-top: var(--s-6); }
+.anfrage__act { margin-top: var(--s-5); }

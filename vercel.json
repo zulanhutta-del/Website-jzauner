@@ -50,7 +50,17 @@
     },
     {
       "source": "/kontakt",
-      "destination": "/#anfrage",
+      "destination": "/kontakt.html",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/en/contact.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/contact",
+      "destination": "/en/contact.html",
       "permanent": true
     },
     {
