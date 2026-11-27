@@ -114,6 +114,8 @@ html { scrollbar-color: #2a3040 var(--c-bg); }
 .burst__frame img { width: 100%; height: 100%; object-fit: cover; }
 .hero__slide.is-active .burst__frame.is-on img { animation: settle 9s linear both; }
 .burst__bg { display: none; }
+/* helles Foto: dunkler Verlauf oben, damit Kopfzeile und Reiter lesbar bleiben */
+.burst__frame--hell::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to bottom, rgba(8,9,12,.82) 0%, rgba(8,9,12,.55) 16%, rgba(8,9,12,0) 38%); }
 @media (max-width: 759px) {
   .burst__frame--ganz { background: #121014; }
   .burst__frame--ganz .burst__bg { display: block; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: blur(60px) brightness(.7) saturate(1.15); transform: scale(1.4); }
